@@ -1,0 +1,52 @@
+/* Este archivo CSS contiene estilos globales para la navegación y accesibilidad del sitio web. */
+/* Encargado del estilo css global: Monica Garcia Garcia */
+
+/* 1. VARIABLES GLOBALES */
+:root {
+    --color-verde-activo: #2E7D32; 
+    --color-texto-nav: #333333;
+    --fuente-principal: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    font-family: var(--fuente-principal);
+}
+
+/* 2. ENLACES DE NAVEGACIÓN */
+.enlaces-nav a {
+    color: var(--color-texto-nav) !important; /* Usamos !important para anular el text-dark de Bootstrap */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por cualquier enlace */
+.enlaces-nav a:hover {
+    color: var(--color-verde-activo) !important;
+}
+
+/* EFECTO VERDE PARA LA PÁGINA ACTUAL */
+.enlaces-nav a.activo {
+    color: var(--color-verde-activo) !important;
+    font-weight: bold;
+}
+
+/* 3. ÍCONOS DEL MENÚ Y ACCESIBILIDAD */
+.iconos-nav i {
+    color: #000;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+/* Que los íconos también se pongan verdes y hagan un leve zoom al tocarlos */
+.iconos-nav i:hover {
+    color: var(--color-verde-activo);
+    transform: scale(1.1); 
+}
+
+.btn-accesibilidad i {
+    transition: color 0.3s ease;
+}
+
+.btn-accesibilidad:hover i {
+    color: var(--color-verde-activo) !important;
+}

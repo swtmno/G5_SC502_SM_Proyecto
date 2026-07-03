@@ -1,0 +1,28 @@
+/* Encargado del estilo css inicio: Monica Garcia Garcia */
+
+/* ESTILOS ESPECÍFICOS DEL INICIO */
+
+/* Títulos principales */
+.titulo-azul {
+    color: #3B82F6; 
+}
+
+.titulo-naranja {
+    color: #F59E0B;
+}
+
+/* Colores de fondo de las tarjetas */
+.fondo-amarillo {
+    background-color: #FEF3C7; 
+}
+
+.fondo-azul {
+    background-color: #DBEAFE; 
+}
+
+/* Ajuste del texto de los párrafos dentro de las tarjetas */
+.tarjeta p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #000;
+}

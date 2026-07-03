@@ -1,0 +1,119 @@
+<!-- Encargado de la página de inicio: Monica Garcia Garcia -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | Hambre Cero</title>
+    
+    <!-- Bootstrap CSS y Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="public/css/global.css">
+    <link rel="stylesheet" href="public/css/inicio.css">
+</head>
+<body>
+
+    <!-- ENCABEZADO GLOBAL -->
+    <header class="encabezado-principal border-bottom">
+        <nav class="navegacion container d-flex justify-content-between align-items-center py-3">
+            <ul class="enlaces-nav d-flex list-unstyled gap-4 mb-0">
+                <!-- Enlaces apuntando hacia la carpeta pages/ -->
+                <li><a href="index.html" class="activo text-decoration-none">Inicio</a></li>
+                <li><a href="pages/donacion.html" class="text-decoration-none text-dark">Donar</a></li>
+                <li><a href="pages/reportes.html" class="text-decoration-none text-dark">Reportes</a></li>
+                <li><a href="pages/solicitar_apoyo.html" class="text-decoration-none text-dark">Solicitar Ayuda</a></li>
+                <li><a href="pages/como_apoyar.html" class="text-decoration-none text-dark">Cómo Apoyar ></a></li>
+            </ul>
+            
+            <div class="iconos-nav d-flex gap-3">
+                <i class="bi bi-bell fs-5" title="Notificaciones"></i>
+                <i class="bi bi-translate fs-5" title="Idioma"></i>
+                <a href="../pages/perfil/login.html" class="btn btn-outline-success btn-sm fw-bold">Ingresar</a>
+            </div>
+        </nav>
+    </header>
+
+    <!--INDICADOR DE RUTA -->
+    <div class="indicador-ruta border-bottom py-3 mb-4">
+        <div class="container">
+            <p class="mb-0">Te encuentras en: <strong>Inicio</strong></p>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container my-5 text-center">
+        
+        <h1 class="titulo-azul mb-5 fw-bold">Informacion educativa y nutricion de manera saludable</h1>
+
+        <div class="row g-4">
+            <!-- Tarjeta 1 -->
+            <div class="col-12 col-lg-4">
+                <article class="tarjeta fondo-amarillo h-100 p-4 rounded shadow-sm">
+                    <h2 class="titulo-naranja mb-4 fs-5 fw-bold">Educación sobre donaciones de alimentos</h2>
+                    <p>Se recomienda donar alimentos no perecederos como arroz, frijoles, pastas, enlatados, granos, alimentos fortificados y productos de larga duración, asegurándose de que estén sellados, dentro de su fecha de vencimiento y correctamente empacados, para garantizar que lleguen en buen estado a las familias que más lo necesitan.</p>
+                </article>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="col-12 col-lg-4">
+                <article class="tarjeta fondo-azul h-100 p-4 rounded shadow-sm">
+                    <h2 class="titulo-naranja mb-4 fs-5 fw-bold">Seguridad alimentaria</h2>
+                    <p>Esto implica asegurar que todas las personas tengan acceso constante a alimentos nutritivos, inocuos y suficientes, promoviendo la distribución responsable de donaciones y la selección adecuada de productos que realmente contribuyan al bienestar nutricional de las comunidades vulnerables.</p>
+                </article>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="col-12 col-lg-4">
+                <article class="tarjeta fondo-amarillo h-100 p-4 rounded shadow-sm">
+                    <h2 class="titulo-naranja mb-4 fs-5 fw-bold">Buenas prácticas de higiene alimentaria</h2>
+                    <p>Almacenar los alimentos en lugares adecuados y trasladar los alimentos donados siguiendo medidas como mantenerlos limpios, evitar la humedad, revisar su integridad, respetar la cadena de frío en productos sensibles y prevenir cualquier tipo de contaminación que ponga en riesgo a quienes los van a consumir.</p>
+                </article>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Botón flotante de accesibilidad -->
+    <button class="btn-accesibilidad position-fixed bottom-0 start-0 m-4 border-0 bg-transparent" aria-label="Opciones de accesibilidad">
+        <i class="bi bi-universal-access-circle fs-1 text-dark"></i>
+    </button>
+
+    <!-- Footer -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <footer class="bg-light border-top mt-5 pt-5 pb-3">
+    <div class="container">
+        <div class="row">
+            <!-- Columna de Ayuda -->
+            <div class="col-md-6">
+                <h5 class="text-success fw-bold">¿Necesitas ayuda?</h5>
+                <p>Estamos aquí para apoyarte con tus donaciones y consultas.</p>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-envelope-fill text-warning me-2"></i> soporte@hambrecero.org</li>
+                    <li><i class="bi bi-envelope-fill text-warning me-2"></i> donaciones@hambrecero.org</li>
+                    <li><i class="bi bi-envelope-fill text-warning me-2"></i> comunidades@hambrecero.org</li>
+                </ul>
+            </div>
+
+            <!-- Columna de Contactos -->
+            <div class="col-md-6 text-md-end">
+                <h5 class="text-success fw-bold">Contactos</h5>
+                <p>Direccion: Calle Ejemplo #123, Ciudad, País</p>
+                <p>Tel: +506 7777 8889</p>
+                <div class="fs-4">
+                    <a href="#" class="text-dark me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-dark me-3"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" class="text-dark"><i class="bi bi-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="text-center text-muted small">&copy; 2026 Proyecto Hambre Cero. Todos los derechos reservados.</p>
+    </div>
+</footer>
+</body>
+</html>
