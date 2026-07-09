@@ -1,0 +1,337 @@
+/*<!-- Encargado de la página de solicitar ayuda:  Mary Paz-->*/
+
+body{
+
+    background:#f7f8fa;
+
+}
+
+
+
+.hero-ayuda{
+
+    background:#ffffff;
+    border-bottom:1px solid #e8e8e8;
+    margin-bottom:40px;
+
+}
+
+.hero-ayuda h1{
+
+    color:#198754;
+    font-weight:700;
+
+}
+
+.hero-ayuda p{
+
+    max-width:700px;
+    margin:auto;
+
+}
+
+
+
+.card{
+
+    border:none;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.card-body{
+
+    padding:40px;
+
+}
+
+
+
+h4{
+
+    color:#198754;
+    font-weight:600;
+
+}
+
+
+
+.form-label{
+
+    font-weight:600;
+    color:#444;
+
+}
+
+
+
+.form-control,
+.form-select{
+
+    border-radius:10px;
+    min-height:48px;
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:#198754;
+    box-shadow:0 0 0 .15rem rgba(25,135,84,.20);
+
+}
+
+textarea.form-control{
+
+    min-height:120px;
+    resize:vertical;
+
+}
+
+
+
+.mapa-placeholder{
+
+    background:#eef3ef;
+    border:2px dashed #198754;
+    height:250px;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    color:#198754;
+
+    font-size:18px;
+
+}
+
+.mapa-placeholder i{
+
+    font-size:60px;
+    margin-bottom:15px;
+
+}
+
+
+
+.form-check{
+
+    margin-top:15px;
+
+}
+
+.form-check-input{
+
+    cursor:pointer;
+
+}
+
+.form-check-label{
+
+    cursor:pointer;
+
+}
+
+
+
+.btn{
+
+    border-radius:10px;
+    padding:10px 20px;
+    transition:.25s;
+
+}
+
+.btn-success:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.btn-outline-secondary:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* MODAL */
+
+.modal-content{
+
+    border:none;
+    border-radius:18px;
+
+}
+
+.modal-header{
+
+    border-radius:18px 18px 0 0;
+
+}
+
+.modal-body i{
+
+    font-size:70px;
+
+}
+
+
+
+.btn-accesibilidad{
+
+    position:fixed;
+
+    left:20px;
+    bottom:20px;
+
+    width:60px;
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.20);
+
+    cursor:pointer;
+
+    z-index:999;
+
+}
+
+.btn-accesibilidad i{
+
+    font-size:35px;
+    color:#198754;
+
+}
+
+/* FOOTER */
+
+footer{
+
+    margin-top:70px;
+
+}
+
+footer h5{
+
+    color:#198754;
+
+}
+
+footer a{
+
+    color:#198754;
+    text-decoration:none;
+
+}
+
+footer a:hover{
+
+    text-decoration:underline;
+
+}
+
+
+
+.card{
+
+    transition:.30s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+
+@media(max-width:992px){
+
+    .card-body{
+
+        padding:30px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .hero-ayuda{
+
+        padding:40px 20px;
+
+    }
+
+    .hero-ayuda h1{
+
+        font-size:2rem;
+
+    }
+
+    .card-body{
+
+        padding:20px;
+
+    }
+
+    .btn{
+
+        width:100%;
+        margin-top:10px;
+
+    }
+
+    .text-end{
+
+        text-align:center !important;
+
+    }
+
+    .mapa-placeholder{
+
+        height:200px;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .hero-ayuda h1{
+
+        font-size:1.7rem;
+
+    }
+
+    .hero-ayuda p{
+
+        font-size:.95rem;
+
+    }
+
+}
+.mapa-real{
+
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+
+}
+
+.mapa-real iframe{
+
+    width:100%;
+    display:block;
+
+}

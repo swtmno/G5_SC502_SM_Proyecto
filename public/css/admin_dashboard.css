@@ -1,0 +1,157 @@
+/*<!-- Encargado de la página:  Mary Paz-->*/
+body{
+
+    background:#f7f8fa;
+
+}
+
+
+.tarjeta-resumen{
+
+    transition:.3s;
+    border:none;
+    border-radius:15px;
+
+}
+
+.tarjeta-resumen:hover{
+
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
+
+.icono-resumen{
+
+    font-size:40px;
+    color:#198754;
+    margin-bottom:15px;
+
+}
+
+.card{
+
+    border:none;
+    border-radius:15px;
+
+}
+
+.card-header{
+
+    font-weight:bold;
+
+}
+
+.table thead{
+
+    background:#f1f1f1;
+
+}
+
+.table tbody tr:hover{
+
+    background:#f9fff7;
+
+}
+
+.badge{
+
+    font-size:.85rem;
+    padding:8px 12px;
+
+}
+
+.btn{
+
+    transition:.2s;
+
+}
+
+.btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+footer{
+
+    margin-top:70px;
+
+}
+
+.btn-accesibilidad{
+
+    z-index:999;
+
+}
+
+h2{
+
+    color:#0d6b44;
+
+}
+
+.list-group-item{
+
+    border:none;
+    border-bottom:1px solid #eee;
+
+}
+
+.list-group-item:last-child{
+
+    border:none;
+
+}
+
+@media(max-width:992px){
+
+    .w-25{
+
+        width:100%!important;
+        margin-top:10px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .tarjeta-resumen{
+
+        margin-bottom:20px;
+
+    }
+
+}
+.modal-content{
+
+border-radius:20px;
+border:none;
+
+}
+
+
+.modal-header{
+
+border-radius:20px 20px 0 0;
+
+}
+
+
+.modal-body p{
+
+font-size:16px;
+
+}
+
+
+.ver-info{
+
+border-radius:50%;
+
+width:38px;
+
+height:38px;
+
+}
