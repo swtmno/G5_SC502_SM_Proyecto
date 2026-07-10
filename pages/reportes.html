@@ -19,7 +19,7 @@
 
 <body>
 
-    <!-- ENCABEZADO GLOBAL -->
+    <!-- ENCABEZADO GLOBAL (Exactamente igual a la plantilla oficial del equipo) -->
     <header class="encabezado-principal border-bottom">
         <nav class="navegacion container d-flex justify-content-between align-items-center py-3">
             <ul class="enlaces-nav d-flex list-unstyled gap-4 mb-0">
@@ -30,20 +30,18 @@
                 <li><a href="como_apoyar.html" class="text-decoration-none text-dark">Cómo Apoyar ></a></li>
             </ul>
 
-            <div class="iconos-nav d-flex gap-3 align-items-center">
-                <i class="bi bi-info-circle fs-5 cursor-pointer" title="Ayuda e Información"></i>
-                <i class="bi bi-bell fs-5 cursor-pointer" title="Notificaciones"></i>
-                <i class="bi bi-translate fs-5 cursor-pointer" title="Idioma"></i>
-                <a href="../pages/perfil/login.html" class="btn btn-outline-success btn-sm fw-bold"><i
-                        class="bi bi-person-circle me-1"></i> Ingresar</a>
+            <div class="iconos-nav d-flex gap-3">
+                <i class="bi bi-bell fs-5" title="Notificaciones"></i>
+                <i class="bi bi-translate fs-5" title="Idioma"></i>
+                <a href="../pages/perfil/login.html" class="btn btn-outline-success btn-sm fw-bold">Ingresar</a>
             </div>
         </nav>
     </header>
 
-    <!-- INDICADOR DE RUTA -->
-    <div class="indicador-ruta border-bottom py-3 mb-4 bg-light">
+    <!-- INDICADOR DE RUTA (Plantilla oficial) -->
+    <div class="indicador-ruta border-bottom py-3 mb-4">
         <div class="container">
-            <p class="mb-0 text-secondary">Te encuentras en: <strong class="text-dark">Reportes</strong></p>
+            <p class="mb-0">Te encuentras en: <strong>Reportes</strong></p>
         </div>
     </div>
 
@@ -53,18 +51,18 @@
          ==================================================================== -->
     <main class="container my-5">
 
-        <!-- Encabezado de la sección y descripción general -->
+        <!-- Encabezado de la sección -->
         <header class="text-center mb-5">
-            <h1 class="fw-bold mb-2">Historial y Reportes de Alimentos</h1>
-            <p class="text-muted lead">Monitoreo en tiempo real de la distribución y balance alimentario del proyecto
+            <h1 class="fw-bold mb-2 text-dark">Historial y Reportes de Alimentos</h1>
+            <p class="text-muted lead">Monitoreo analítico de la recolección, entrega y mermas de alimentos del proyecto
                 Hambre Cero.</p>
         </header>
 
-        <!-- Contenedor para mensajes y alertas dinámicas de Bootstrap -->
+        <!-- Contenedor para alertas dinámicas de Bootstrap -->
         <div id="contenedorAlertas" class="mb-4"></div>
 
         <!-- ================================================================
-             TABLA PRINCIPAL DE REPORTES (Fiel al Prototipo de Diseño)
+             TABLA PRINCIPAL DE REPORTES (Fiel al Prototipo 3. Reportes.png)
              ================================================================ -->
         <section class="card shadow-sm border-0 mb-5 overflow-hidden">
             <div class="table-responsive">
@@ -118,7 +116,7 @@
              MÓDULO ADICIONAL: REGISTRO DE NUEVO REPORTE (OPCIONAL/EXTRA)
              Permite agregar datos en memoria para demostrar uso de Arreglos JS
              ================================================================ -->
-        <section class="card shadow border-0 mt-5 bg-light">
+        <section class="card shadow-sm border-0 mt-5 bg-light">
             <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
                 <h5 class="mb-0 fw-bold text-secondary"><i class="bi bi-plus-circle-fill text-success me-2"></i>
                     Registrar Nuevo Balance de Alimentos</h5>
@@ -174,10 +172,10 @@
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Script principal de Reportes (Lógica del lado del cliente) -->
+    <!-- Script principal de Reportes (Sintaxis del Prof. Chinchilla) -->
     <script src="../public/js/reportes.js"></script>
 
-    <!-- FOOTER GLOBAL -->
+    <!-- FOOTER GLOBAL (Exactamente igual a la plantilla oficial del equipo) -->
     <footer class="bg-light border-top mt-5 pt-5 pb-3">
         <div class="container">
             <div class="row">

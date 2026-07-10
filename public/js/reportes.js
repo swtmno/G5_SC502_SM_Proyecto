@@ -1,7 +1,8 @@
 /* ==========================================================================
- ENCARGADO: Jorge Andres Duarte
-========================================================================== */
 
+   ENCARGADO: Jorge Andres Duarte
+   
+   ========================================================================== */
 
 // --- 1. REFERENCIAS A ELEMENTOS DEL DOM (USO ESTRICTO DE CONST) ---
 const tablaReportesCuerpo = document.getElementById("tablaReportesCuerpo");
@@ -37,14 +38,12 @@ let historialReportes = [
    Recorre el arreglo en memoria y construye las filas de la tabla
    ========================================================================== */
 function renderizarTabla() {
-    // Limpiamos el contenido actual del cuerpo de la tabla
     tablaReportesCuerpo.innerHTML = "";
 
     // Ciclo tradicional para recorrer el arreglo de reportes
     for (let i = 0; i < historialReportes.length; i++) {
         const reporte = historialReportes[i];
 
-        // Construcción limpia con comillas invertidas (backticks) e interpolación
         const filaHTML = `
             <tr>
                 <td>
@@ -68,7 +67,6 @@ function renderizarTabla() {
             </tr>
         `;
 
-        // Inyección de la fila dentro de la tabla
         tablaReportesCuerpo.innerHTML += filaHTML;
     }
 }
@@ -84,7 +82,6 @@ function mostrarAlerta(mensaje, tipo) {
         </div>
     `;
 
-    // Ocultar alerta automáticamente después de 4 segundos
     setTimeout(function () {
         contenedorAlertas.innerHTML = "";
     }, 4000);
@@ -108,19 +105,16 @@ btnVerReporte.addEventListener("click", function (event) {
 
     const idBuscado = inputIDUsuario.value.trim().toUpperCase();
 
-    // Validación de campo vacío
     if (idBuscado === "") {
         mostrarAlerta(`<i class="bi bi-exclamation-triangle-fill me-2"></i> Debe ingresar su ID de usuario (Ej: USR-001) para consultar su reporte.`, "warning");
         return;
     }
 
-    // Variables acumuladoras para calcular el total del usuario
     let totalRecolectado = 0;
     let totalEntregado = 0;
     let totalDesperdiciado = 0;
     let registrosEncontrados = 0;
 
-    // Recorrido del arreglo buscando coincidencias
     for (let i = 0; i < historialReportes.length; i++) {
         if (historialReportes[i].id.toUpperCase() === idBuscado) {
             totalRecolectado += historialReportes[i].recolectado;
@@ -130,14 +124,12 @@ btnVerReporte.addEventListener("click", function (event) {
         }
     }
 
-    // Validación si no se encontraron registros
     if (registrosEncontrados === 0) {
         detalleReporteUsuario.innerHTML = "";
         mostrarAlerta(`<i class="bi bi-info-circle-fill me-2"></i> No se encontraron reportes registrados para el ID: <strong>${idBuscado}</strong>. (Prueba con USR-001, USR-002 o USR-003).`, "info");
         return;
     }
 
-    // Renderizado del resumen analítico personal
     const tarjetaDetalleHTML = `
         <div class="card border-0 shadow bg-light">
             <div class="card-header bg-dark text-white py-3 d-flex justify-content-between align-items-center">
@@ -173,7 +165,7 @@ btnVerReporte.addEventListener("click", function (event) {
     mostrarAlerta(`<i class="bi bi-person-check-fill me-2"></i> Reporte generado exitosamente para el usuario <strong>${idBuscado}</strong>.`, "success");
 });
 
-// 3. Evento opcional para registrar un nuevo reporte en el arreglo (Demuestra CRUD en memoria)
+// 3. Evento opcional para registrar un nuevo balance de alimentos en el arreglo
 if (formNuevoReporte) {
     formNuevoReporte.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -183,20 +175,17 @@ if (formNuevoReporte) {
         const entregado = parseInt(inputEntregado.value);
         const desperdiciado = parseInt(inputDesperdiciado.value);
 
-        // Validación de números negativos
         if (recolectado < 0 || entregado < 0 || desperdiciado < 0) {
             mostrarAlerta(`<i class="bi bi-exclamation-circle-fill me-2"></i> Las cantidades de alimentos no pueden ser números negativos.`, "warning");
             return;
         }
 
-        // Obtención de fecha actual en formato YYYY/MM/DD
         const hoy = new Date();
         const anio = hoy.getFullYear();
         const mes = String(hoy.getMonth() + 1).padStart(2, "0");
         const dia = String(hoy.getDate()).padStart(2, "0");
         const fechaActual = `${anio}/${mes}/${dia}`;
 
-        // Creación del nuevo objeto con la sintaxis del profesor
         const nuevoReporte = {
             id: id,
             recolectado: recolectado,
@@ -205,7 +194,6 @@ if (formNuevoReporte) {
             fecha: fechaActual
         };
 
-        // Guardar en el arreglo en memoria y refrescar tabla
         historialReportes.push(nuevoReporte);
         renderizarTabla();
         formNuevoReporte.reset();
@@ -214,8 +202,5 @@ if (formNuevoReporte) {
     });
 }
 
-/* ==========================================================================
-   INICIALIZACIÓN DEL SISTEMA
-   Carga la tabla automáticamente al abrir la página por primera vez
-   ========================================================================== */
+// Inicialización
 renderizarTabla();

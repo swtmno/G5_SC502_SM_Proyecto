@@ -1,12 +1,21 @@
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS - MÓDULO DE REPORTES (PROYECTO HAMBRE CERO)
+   Encargado del módulo: Jorge Andres Duarte
+   ========================================================================== */
+
 :root {
     --verde-recolectados: #1b7b34;
+    /* Verde institucional Hambre Cero */
     --naranja-entregados: #f38b1b;
+    /* Naranja vibrante para entregas */
     --azul-desperdiciados: #1aa1d8;
+    /* Azul para mermas */
     --fondo-filas: #fcfbf9;
+    /* Tono crema suave para tablas */
 }
 
 /* ==========================================================================
-   ENCABEZADOS Y TABLA DE REPORTES
+   ESTILOS DE LA TABLA ANALÍTICA DE REPORTES
    ========================================================================== */
 .tabla-reportes {
     background-color: var(--fondo-filas);
@@ -15,7 +24,7 @@
     border: 1px solid #dee2e6;
 }
 
-/* Colores de fondo para los 3 bloques principales de la tabla */
+/* Colores en encabezados tal como lo indica el Prototipo 3. Reportes.png */
 .tabla-reportes thead th.col-recolectados {
     background-color: var(--verde-recolectados) !important;
     color: #ffffff !important;
@@ -34,7 +43,7 @@
     border-color: var(--azul-desperdiciados);
 }
 
-/* Estilo para las celdas de datos (Simulando la vista de 2 columnas por celda) */
+/* Formato interior de celdas */
 .tabla-reportes tbody td {
     padding: 16px 20px;
     font-size: 1.05rem;
@@ -43,13 +52,12 @@
     border-color: #e9ecef;
 }
 
-/* Efecto hover suave al pasar el mouse por las filas */
 .tabla-reportes tbody tr:hover td {
     background-color: #f1ebd8;
     transition: background-color 0.2s ease-in-out;
 }
 
-/* Contenedor flex dentro de cada celda para separar Cantidad a la izquierda y Fecha a la derecha */
+/* Flex para separar Cantidad y Fecha como en el prototipo */
 .celda-flex {
     display: flex;
     justify-content: space-between;
@@ -68,7 +76,7 @@
 }
 
 /* ==========================================================================
-   BOTONES INTERACTIVOS (SEGÚN PROTOTIPO)
+   BOTONES Y CONTROLES INTERACTIVOS
    ========================================================================== */
 .btn-naranja {
     background-color: var(--naranja-entregados);
@@ -96,13 +104,8 @@
     transform: translateY(-2px);
 }
 
-/* Cursor pointer para iconos de navegación */
-.cursor-pointer {
-    cursor: pointer;
-}
-
 /* ==========================================================================
-   DISEÑO ADAPTABLE (RESPONSIVE)
+   ADAPTACIÓN MÓVIL (RESPONSIVE DESIGN)
    ========================================================================== */
 @media (max-width: 768px) {
     .celda-flex {
