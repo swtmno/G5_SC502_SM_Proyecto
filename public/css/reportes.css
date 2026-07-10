@@ -1,0 +1,117 @@
+:root {
+    --verde-recolectados: #1b7b34;
+    --naranja-entregados: #f38b1b;
+    --azul-desperdiciados: #1aa1d8;
+    --fondo-filas: #fcfbf9;
+}
+
+/* ==========================================================================
+   ENCABEZADOS Y TABLA DE REPORTES
+   ========================================================================== */
+.tabla-reportes {
+    background-color: var(--fondo-filas);
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #dee2e6;
+}
+
+/* Colores de fondo para los 3 bloques principales de la tabla */
+.tabla-reportes thead th.col-recolectados {
+    background-color: var(--verde-recolectados) !important;
+    color: #ffffff !important;
+    border-color: var(--verde-recolectados);
+}
+
+.tabla-reportes thead th.col-entregados {
+    background-color: var(--naranja-entregados) !important;
+    color: #ffffff !important;
+    border-color: var(--naranja-entregados);
+}
+
+.tabla-reportes thead th.col-desperdiciados {
+    background-color: var(--azul-desperdiciados) !important;
+    color: #ffffff !important;
+    border-color: var(--azul-desperdiciados);
+}
+
+/* Estilo para las celdas de datos (Simulando la vista de 2 columnas por celda) */
+.tabla-reportes tbody td {
+    padding: 16px 20px;
+    font-size: 1.05rem;
+    vertical-align: middle;
+    background-color: #fffaf4;
+    border-color: #e9ecef;
+}
+
+/* Efecto hover suave al pasar el mouse por las filas */
+.tabla-reportes tbody tr:hover td {
+    background-color: #f1ebd8;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Contenedor flex dentro de cada celda para separar Cantidad a la izquierda y Fecha a la derecha */
+.celda-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.celda-flex .cantidad {
+    font-weight: 600;
+    color: #2b2b2b;
+}
+
+.celda-flex .fecha {
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   BOTONES INTERACTIVOS (SEGÚN PROTOTIPO)
+   ========================================================================== */
+.btn-naranja {
+    background-color: var(--naranja-entregados);
+    color: #ffffff;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-naranja:hover {
+    background-color: #d9770f;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-verde {
+    background-color: var(--verde-recolectados);
+    color: #ffffff;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-verde:hover {
+    background-color: #145c26;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Cursor pointer para iconos de navegación */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   DISEÑO ADAPTABLE (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .celda-flex {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+    }
+
+    .celda-flex .fecha {
+        font-size: 0.85rem;
+    }
+}
