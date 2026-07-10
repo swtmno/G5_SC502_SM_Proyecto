@@ -1,3 +1,5 @@
+//<!-- Encargado de la página:  Monica Garcia Garcia-->
+
 document.addEventListener('DOMContentLoaded', () => {
     // Referencias al DOM
     const radioMensual = document.getElementById('radioMensual');
@@ -8,54 +10,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const formTarjeta = document.getElementById('formTarjeta');
     const errorMonto = document.getElementById('errorMonto');
 
+    // Referencias a inputs de tarjeta
+    const inputTarjeta = formTarjeta.querySelector('input[placeholder="0000 0000 0000 0000"]');
+    const inputExp = formTarjeta.querySelector('input[placeholder="09/28"]');
+    const inputCvv = formTarjeta.querySelector('input[placeholder="123"]');
+
     let montoActual = 5000;
     let esMensual = true; // Empezamos en donación mensual por defecto
 
+    // 0. FORMATO AUTOMÁTICO DE CAMPOS
+    inputTarjeta.addEventListener('input', (e) => {
+        let valor = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/g, '');
+        e.target.value = valor.match(/.{1,4}/g)?.join(' ') || '';
+    });
+
+    inputExp.addEventListener('input', (e) => {
+        let valor = e.target.value.replace(/\D/g, '');
+        if (valor.length > 2) {
+            e.target.value = valor.substring(0, 2) + '/' + valor.substring(2, 4);
+        } else {
+            e.target.value = valor;
+        }
+    });
+
     // 1. Función para actualizar el botón de pago
     const actualizarBoton = () => {
-        if (isNaN(montoActual) || montoActual <= 0) {
-            btnTotal.textContent = esMensual ? '₡0 / mes' : '₡0';
-            return;
-        }
-
         const montoFormateado = `₡${montoActual.toLocaleString('es-CR')}`;
         btnTotal.textContent = esMensual ? `${montoFormateado} / mes` : montoFormateado;
     };
 
     // 2. Cambiar entre Mensual y Única
-    const alternarFrecuencia = () => {
+const alternarFrecuencia = () => {
         esMensual = radioMensual.checked;
-        
-        if (esMensual) {
-            contenedorMensual.classList.remove('d-none');
-            contenedorUnica.classList.add('d-none');
-            
-            // Buscar la opción activa dentro de mensual
-            const activa = contenedorMensual.querySelector('.tarjeta-donacion.activo');
-            montoActual = activa ? parseFloat(activa.getAttribute('data-monto')) : 0;
-            
-            // Si hay un valor en el input libre mensual, usar ese
-            const inputLibreMensual = contenedorMensual.querySelector('.input-libre').value;
-            if (inputLibreMensual && !activa) montoActual = parseFloat(inputLibreMensual);
-
-        } else {
-            contenedorUnica.classList.remove('d-none');
-            contenedorMensual.classList.add('d-none');
-            
-            // Preseleccionar la primera opción de donación única si ninguna está seleccionada
-            let activa = contenedorUnica.querySelector('.tarjeta-donacion.activo');
-            if (!activa) {
-                const primeraOpcion = contenedorUnica.querySelector('.tarjeta-donacion[data-monto]');
-                primeraOpcion.classList.add('activo');
-                activa = primeraOpcion;
-            }
-            montoActual = activa ? parseFloat(activa.getAttribute('data-monto')) : 0;
-            
-            // Si hay un valor en el input libre único, usar ese
-            const inputLibreUnico = contenedorUnica.querySelector('.input-libre').value;
-            if (inputLibreUnico && !activa) montoActual = parseFloat(inputLibreUnico);
-        }
-        
+        contenedorMensual.classList.toggle('d-none', !esMensual);
+        contenedorUnica.classList.toggle('d-none', esMensual);
+        const activa = (esMensual ? contenedorMensual : contenedorUnica).querySelector('.tarjeta-donacion.activo');
+        montoActual = activa ? parseFloat(activa.getAttribute('data-monto')) : 0;
         actualizarBoton();
     };
 
@@ -66,16 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.tarjeta-donacion[data-monto]').forEach(tarjeta => {
         tarjeta.addEventListener('click', function() {
             const contenedorPadre = this.closest('.frecuencia-contenedor');
-            
-            // Quitar clase activo a las demás y limpiar input libre
             contenedorPadre.querySelectorAll('.tarjeta-donacion').forEach(t => t.classList.remove('activo'));
-            const inputLibre = contenedorPadre.querySelector('.input-libre');
-            if (inputLibre) inputLibre.value = '';
-
-            // Activar la seleccionada
+            contenedorPadre.querySelector('.input-libre').value = '';
             this.classList.add('activo');
             montoActual = parseFloat(this.getAttribute('data-monto'));
-            
             errorMonto.classList.add('d-none');
             actualizarBoton();
         });
@@ -84,47 +68,51 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Lógica para los inputs de "Monto Libre"
     document.querySelectorAll('.input-libre').forEach(input => {
         input.addEventListener('input', function() {
-            const contenedorPadre = this.closest('.frecuencia-contenedor');
-            
-            // Quitar la selección de las tarjetas predefinidas
-            contenedorPadre.querySelectorAll('.tarjeta-donacion').forEach(t => t.classList.remove('activo'));
-            
-            const valorIngresado = parseFloat(this.value);
-            montoActual = isNaN(valorIngresado) ? 0 : valorIngresado;
+            this.closest('.frecuencia-contenedor').querySelectorAll('.tarjeta-donacion').forEach(t => t.classList.remove('activo'));
+            montoActual = parseFloat(this.value) || 0;
             actualizarBoton();
-
-            // Validar monto mayor a 0
-            if (valorIngresado > 0) {
-                errorMonto.classList.add('d-none');
-                this.classList.remove('is-invalid');
-            } else if (this.value !== '') {
-                errorMonto.classList.remove('d-none');
-                this.classList.add('is-invalid');
-            }
+            if (montoActual > 0) errorMonto.classList.add('d-none');
         });
     });
 
     // 5. Validación final al enviar el formulario de tarjeta
     formTarjeta.addEventListener('submit', (e) => {
-        e.preventDefault(); // Detener envío por defecto
+        e.preventDefault();
         
-        if (isNaN(montoActual) || montoActual <= 0) {
-            errorMonto.classList.remove('d-none');
-            
-            // Marcar en rojo el input libre si está visible y vacío/inválido
-            const inputVisible = esMensual 
-                ? contenedorMensual.querySelector('.input-libre') 
-                : contenedorUnica.querySelector('.input-libre');
-                
-            if (!document.querySelector('.tarjeta-donacion.activo')) {
-                inputVisible.classList.add('is-invalid');
-            }
-            return;
+        let valido = true;
+
+        if (inputTarjeta.value.length < 19) {
+                 valido = false; inputTarjeta.classList.add('is-invalid'); 
+                }
+        else { 
+            inputTarjeta.classList.remove('is-invalid'); 
         }
 
-        const tipoDonacion = esMensual ? 'recurrente' : 'única';
-        alert(`¡Gracias por tu donación ${tipoDonacion} de ₡${montoActual.toLocaleString('es-CR')}! Procesando pago...`);
-        // formTarjeta.submit(); // Descomentar al integrar con backend
+        if (inputExp.value.length < 5) { 
+                valido = false; inputExp.classList.add('is-invalid'); 
+            }
+
+        else { 
+            inputExp.classList.remove('is-invalid'); 
+        }
+
+        if (inputCvv.value.length < 3) { 
+                valido = false; inputCvv.classList.add('is-invalid'); 
+            }
+
+        else { 
+            inputCvv.classList.remove('is-invalid'); 
+        }
+
+        if (isNaN(montoActual) || montoActual <= 0) {
+            valido = false;
+            errorMonto.classList.remove('d-none');
+        }
+
+        if (valido) {
+            const modalDonacion = new bootstrap.Modal(document.getElementById('modalDonacion'));
+            modalDonacion.show();
+        }
     });
 
     // Inicializar el botón al cargar

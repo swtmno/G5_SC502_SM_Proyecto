@@ -239,14 +239,14 @@
                     <i class="bi bi-phone-vibrate text-danger mb-3 d-block" style="font-size: 4rem;"></i>
                     <h3 class="fw-bold mb-4">SINPE Móvil</h3>
                     <p class="text-muted">La forma más rápida de ayudar desde tu celular.</p>
-                    
-                    <div class="bg-light p-4 rounded d-inline-block text-center border border-danger border-opacity-25 shadow-sm">
-                        <p class="text-uppercase small fw-bold text-muted mb-1">Número autorizado</p>
-                        <h2 class="display-5 fw-bold text-dark mb-1">8889-0000</h2>
+                    <div class="d-flex flex-column align-items-center">
+                        
+                        <div class="bg-light p-4 rounded d-inline-block text-center border border-danger border-opacity-25 shadow-sm mb-3">
+                            <p class="text-uppercase small fw-bold text-muted mb-1">Número autorizado</p>
+                            <h2 class="display-5 fw-bold text-dark mb-1">8889-0000</h2>
                         <p class="fw-bold text-success fs-5 mb-0">Hambre Cero CR</p>
                     </div>
-                    
-                    <div class="mt-4 alert alert-warning d-inline-block text-start">
+                    <div class="mt-2 alert alert-warning d-inline-block text-start">
                         <i class="bi bi-info-circle me-2"></i><strong>Nota:</strong> Si deseas un comprobante, envía el pantallazo de tu transacción al WhatsApp de este mismo número.
                     </div>
                 </div>
@@ -254,6 +254,28 @@
             </div>
         </div>
     </main>
+    <!-- Modal de Confirmación de Donación -->
+    <div class="modal fade" id="modalDonacion" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #F5A623; color: white;">
+                    <h5 class="modal-title">¡Donación Recibida!</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="bi bi-heart-fill text-danger fs-1"></i>
+                    <p class="mt-3">
+                        ¡Muchísimas gracias por tu aporte! <br>
+                        Tu generosidad nos ayuda a avanzar hacia el objetivo <strong>Hambre Cero</strong>.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" style="background-color: #F5A623; color: white;" data-bs-dismiss="modal">
+                        Aceptar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Botón flotante de accesibilidad -->
     <button class="btn-accesibilidad position-fixed bottom-0 start-0 m-4 border-0 bg-transparent" aria-label="Opciones de accesibilidad">
