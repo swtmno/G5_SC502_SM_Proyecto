@@ -65,6 +65,33 @@
                 Donacion monetaria
             </button>
         </div>
+       
+        <div class="mt-5 pt-4 border-top">
+            <button class="btn btn-success fw-bold py-2 px-4 shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#formularioParticipar" aria-expanded="false" aria-controls="formularioParticipar" style="border-radius: 50px; min-width: 180px; font-size: 16px;">
+                Quiero participar
+            </button>
+
+            <!--  formulario  -->
+            <div class="collapse mt-4" id="formularioParticipar" style="max-width: 500px;">
+                <div class="card card-body shadow-sm border-light p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nombreInput" class="form-label fw-bold text-dark">Nombre</label>
+                            <input type="text" class="form-control" id="nombreInput" placeholder="Tu nombre completo" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="correoInput" class="form-label fw-bold text-dark">Correo electrónico</label>
+                            <input type="email" class="form-control" id="correoInput" placeholder="ejemplo@correo.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefonoInput" class="form-label fw-bold text-dark">Número de teléfono</label>
+                            <input type="tel" class="form-control" id="telefonoInput" placeholder="+506 8888-8888" required>
+                        </div>
+                        <button type="submit" class="btn btn-outline-success fw-bold w-100 mt-2">Enviar solicitud</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
     </main>
 
