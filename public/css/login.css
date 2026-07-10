@@ -1,5 +1,6 @@
 <!-- Encargado del style de login: Nicole Montenegro -->
 
+
 *{
     margin:0;
     padding:0;
@@ -10,6 +11,32 @@
 body{
     background:#fff;
 }
+
+.back-button{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+    background: #8d8d8d;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    transition: .3s;
+}
+
+.back-button:hover{
+    background: #6f6f6f;
+}
+
 
 .login-container{
     width:100%;
