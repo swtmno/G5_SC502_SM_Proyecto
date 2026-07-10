@@ -105,3 +105,13 @@
     background-color: #7a9f1a;
     color: white;
 }
+/* Ocultar flechas de contador en inputs number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield; 
+    appearance: textfield;
+}
