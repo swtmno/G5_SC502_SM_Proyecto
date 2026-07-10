@@ -13,7 +13,7 @@
     
     <!-- Estilos CSS-->
     <link rel="stylesheet" href="../public/css/global.css">
-    <link rel="stylesheet" href="../public/css/nombre-del-archivo.css">
+    <link rel="stylesheet" href="../public/css/donacion.css">
 </head>
 <body>
 
@@ -38,6 +38,17 @@
         </nav>
     </header>
 
+    <!-- BANNER DEGRADADO (Hero Section) -->
+    <section class="hero-banner">
+        <div class="container">
+            <h1 class="texto-banner mb-0">CADA DONACIÓN</h1>
+            <div class="d-flex align-items-center gap-3 mt-2">
+                <span class="fondo-rojo-texto">AYUDA</span>
+                <h2 class="texto-banner fs-3 mb-0">¡UNETE A LA CAUSA!</h2>
+            </div>
+        </div>
+    </section>
+
     <!--INDICADOR DE RUTA-->
     <div class="indicador-ruta border-bottom py-3 mb-4">
         <div class="container">
@@ -46,18 +57,212 @@
     </div>
 
     <!-- CONTENIDO PRINCIPAL -->
-    <main class="container my-5">
-        
-        <!-- El Encargado de la pagina escribirá aquí adentro toda su estructura con Bootstrap!! -->
-        <h1>Título de esta sección</h1>
-        <p>Contenido principal...</p>
+     <main class="container mb-5">
+        <div class="fondo-crema p-4 p-md-5 rounded shadow-sm">
+            
+            <!-- PESTAÑAS DE NAVEGACIÓN (Métodos de Pago) -->
+             <ul class="nav nav-tabs mb-4 border-bottom-0" id="donationTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link activo-custom active fw-bold" id="tarjeta-tab" data-bs-toggle="tab" data-bs-target="#tarjeta" type="button" role="tab">
+                        <i class="bi bi-credit-card me-2"></i>Tarjeta
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link fw-bold" id="transferencia-tab" data-bs-toggle="tab" data-bs-target="#transferencia" type="button" role="tab">
+                        <i class="bi bi-bank me-2"></i>Transferencia
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link fw-bold" id="sinpe-tab" data-bs-toggle="tab" data-bs-target="#sinpe" type="button" role="tab">
+                        <i class="bi bi-phone me-2"></i>SINPE Móvil
+                    </button>
+                </li>
+            </ul>
 
+            <!-- CONTENIDO DE LAS PESTAÑAS -->
+            <div class="tab-content bg-white p-4 rounded border" id="donationTabsContent">
+                
+                <!-- PESTAÑA 1: TARJETA DE CRÉDITO / DÉBITO -->
+                <div class="tab-pane fade show active" id="tarjeta" role="tabpanel">
+                    
+                    <!-- Interruptor Mensual / Única -->
+                    <div class="d-flex justify-content-center mb-4 pb-3 border-bottom">
+                        <div class="btn-group w-100 w-md-75" role="group">
+                            <input type="radio" class="btn-check" name="tipoFrecuencia" id="radioMensual" autocomplete="off" checked>
+                            <label class="btn btn-outline-success fw-bold py-2 fs-5" for="radioMensual">Donación Mensual</label>
+
+                            <input type="radio" class="btn-check" name="tipoFrecuencia" id="radioUnica" autocomplete="off">
+                            <label class="btn btn-outline-success fw-bold py-2 fs-5" for="radioUnica">Donación Única</label>
+                        </div>
+                    </div>
+
+                    <!-- CONTENEDOR: DONACIÓN MENSUAL -->
+                    <div id="contenedor-mensual" class="frecuencia-contenedor">
+                        <p class="text-muted text-center mb-4">Ideal para dar sostenibilidad a nuestro proyecto a largo plazo.</p>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <div class="tarjeta-donacion p-3 border rounded cursor-pointer activo" data-monto="5000">
+                                    <strong class="d-block fs-4 text-success mb-1">₡5,000 <span class="fs-6 text-muted">/ mes</span></strong>
+                                    <span class="d-block fw-bold text-dark">Kit básico individual</span>
+                                    <p class="small text-muted mb-0 mt-1">Aporta los productos de higiene esenciales para 1 persona al mes.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="tarjeta-donacion p-3 border rounded cursor-pointer" data-monto="15000">
+                                    <strong class="d-block fs-4 text-success mb-1">₡15,000 <span class="fs-6 text-muted">/ mes</span></strong>
+                                    <span class="d-block fw-bold text-dark">Nutrición mensual</span>
+                                    <p class="small text-muted mb-0 mt-1">Cubre la Canasta Básica Alimentaria completa para 1 persona en vulnerabilidad.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="tarjeta-donacion p-3 border rounded cursor-pointer" data-monto="30000">
+                                    <strong class="d-block fs-4 text-success mb-1">₡30,000 <span class="fs-6 text-muted">/ mes</span></strong>
+                                    <span class="d-block fw-bold text-dark">Sustento familiar</span>
+                                    <p class="small text-muted mb-0 mt-1">Asegura la alimentación y aseo mensual para una pareja de adultos mayores o una madre con su hijo.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="tarjeta-donacion p-3 border rounded h-100">
+                                    <span class="d-block fw-bold text-dark mb-1">Monto libre</span>
+                                    <span class="d-block text-muted small mb-2">Tu propio impacto (se debita automáticamente).</span>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light">₡</span>
+                                        <input type="number" class="form-control input-libre" placeholder="Ej. 10000" min="1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CONTENEDOR: DONACIÓN ÚNICA -->
+                    <div id="contenedor-unica" class="frecuencia-contenedor d-none">
+                        <p class="text-muted text-center mb-4">Ideal para personas que quieren ver un impacto inmediato y fuerte en una familia.</p>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <div class="tarjeta-donacion p-3 border rounded cursor-pointer" data-monto="20000">
+                                    <strong class="d-block fs-4 text-success mb-1">₡20,000</strong>
+                                    <span class="d-block fw-bold text-dark">Higiene para un hogar</span>
+                                    <p class="small text-muted mb-0 mt-1">Compra un kit completo de limpieza y aseo personal para una familia de 5 personas.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="tarjeta-donacion p-3 border rounded cursor-pointer" data-monto="60000">
+                                    <strong class="d-block fs-4 text-success mb-1">₡60,000</strong>
+                                    <span class="d-block fw-bold text-dark">Canasta alimentaria completa</span>
+                                    <p class="small text-muted mb-0 mt-1">Alimenta por todo un mes a un adulto en condición de pobreza extrema.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="tarjeta-donacion p-3 border rounded cursor-pointer" data-monto="125000">
+                                    <strong class="d-block fs-4 text-success mb-1">₡125,000</strong>
+                                    <span class="d-block fw-bold text-dark">Adopta una familia</span>
+                                    <p class="small text-muted mb-0 mt-1">Cubre de forma integral la línea de pobreza oficial de una persona por un mes completo.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="tarjeta-donacion p-3 border rounded cursor-pointer" data-monto="250000">
+                                    <strong class="d-block fs-4 text-success mb-1">₡250,000</strong>
+                                    <span class="d-block fw-bold text-dark">Impacto comunitario</span>
+                                    <p class="small text-muted mb-0 mt-1">Patrocina la canasta básica de alimentos completa para un hogar numeroso.</p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="tarjeta-donacion p-3 border rounded text-center">
+                                    <span class="d-block fw-bold text-dark mb-1">Monto libre (Donación especial)</span>
+                                    <span class="d-block text-muted small mb-2">Pensado para empresas o padrinos corporativos que deseen hacer un gran aporte único.</span>
+                                    <div class="input-group w-50 mx-auto">
+                                        <span class="input-group-text bg-light">₡</span>
+                                        <input type="number" class="form-control input-libre" placeholder="Ej. 500000" min="1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FORMULARIO DE DATOS -->
+                    <form id="formTarjeta" class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+
+                        <div class="col-12 mt-4">
+                            <h5 class="fw-bold d-flex align-items-center gap-2 border-bottom pb-2">
+                                Información de Tarjeta 
+                                <i class="bi bi-cc-visa text-primary fs-3"></i>
+                                <i class="bi bi-cc-mastercard text-danger fs-3"></i>
+                            </h5>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Número de tarjeta</label>
+                            <input type="text" class="form-control" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Expiración (MM/AA)</label>
+                            <input type="text" class="form-control" placeholder="09/28" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">CVV</label>
+                            <input type="password" class="form-control" placeholder="123" maxlength="4" required>
+                        </div>
+
+                        <div class="col-12 text-end mt-4 pt-3 border-top">
+                            <div id="errorMonto" class="text-danger small mb-2 d-none fw-bold">La cantidad debe ser mayor a 0.</div>
+                            <button type="submit" class="btn btn-donar px-5 py-3 fw-bold w-100 w-md-auto text-uppercase fs-5">
+                                Donar <span id="btnTotal">₡5,000 / mes</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- PESTAÑA 2: TRANSFERENCIA BANCARIA-->
+                <div class="tab-pane fade text-center py-4" id="transferencia" role="tabpanel">
+                    <i class="bi bi-bank2 text-success mb-3 d-block" style="font-size: 4rem;"></i>
+                    <h3 class="fw-bold mb-4">Transferencia Bancaria</h3>
+                    <p class="text-muted">Puedes realizar tu donativo directamente a nuestras cuentas bancarias. Por favor, incluye tu nombre en el detalle de la transferencia.</p>
+                    
+                    <div class="bg-light p-4 rounded d-inline-block text-start border">
+                        <p class="mb-2"><strong>Banco:</strong> Banco Nacional de Costa Rica</p>
+                        <p class="mb-2"><strong>Nombre de la cuenta:</strong> Proyecto Hambre Cero CR</p>
+                        <p class="mb-2"><strong>Cuenta Colones:</strong> 200-01-000-123456-7</p>
+                        <p class="mb-0"><strong>Cuenta IBAN:</strong> CR0501520100101234567</p>
+                    </div>
+                </div>
+
+                <!-- PESTAÑA 3: SINPE MÓVIL-->
+                <div class="tab-pane fade text-center py-4" id="sinpe" role="tabpanel">
+                    <i class="bi bi-phone-vibrate text-danger mb-3 d-block" style="font-size: 4rem;"></i>
+                    <h3 class="fw-bold mb-4">SINPE Móvil</h3>
+                    <p class="text-muted">La forma más rápida de ayudar desde tu celular.</p>
+                    
+                    <div class="bg-light p-4 rounded d-inline-block text-center border border-danger border-opacity-25 shadow-sm">
+                        <p class="text-uppercase small fw-bold text-muted mb-1">Número autorizado</p>
+                        <h2 class="display-5 fw-bold text-dark mb-1">8889-0000</h2>
+                        <p class="fw-bold text-success fs-5 mb-0">Hambre Cero CR</p>
+                    </div>
+                    
+                    <div class="mt-4 alert alert-warning d-inline-block text-start">
+                        <i class="bi bi-info-circle me-2"></i><strong>Nota:</strong> Si deseas un comprobante, envía el pantallazo de tu transacción al WhatsApp de este mismo número.
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </main>
 
     <!-- Botón flotante de accesibilidad -->
     <button class="btn-accesibilidad position-fixed bottom-0 start-0 m-4 border-0 bg-transparent" aria-label="Opciones de accesibilidad">
         <i class="bi bi-universal-access-circle fs-1 text-dark"></i>
     </button>
+
+    <!-- JS Scripts (Bootstrap y Custom) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../public/js/donacion.js"></script>
 
     <!-- Footer -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

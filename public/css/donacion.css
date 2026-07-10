@@ -1,0 +1,107 @@
+/* BANNER HERO DEGRADADO */
+.hero-banner {
+    position: relative;
+    height: 250px;
+    background: linear-gradient(to right, #F5A623 35%, rgba(245, 166, 35, 0.6) 60%, transparent 100%), 
+                url('../img/fondo donacion.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.texto-banner {
+    color: white;
+    font-weight: 900;
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: 1px;
+}
+
+.fondo-rojo-texto {
+    background-color: #E32619;
+    color: white;
+    font-weight: 900;
+    padding: 5px 15px;
+    font-size: 2rem;
+    font-family: 'Arial Black', sans-serif;
+}
+
+/* FORMULARIO Y COLORES BASE */
+.fondo-crema {
+    background-color: #FDF9F1;
+}
+
+.form-control {
+    border: 1px solid #e0dcd2;
+    background-color: white;
+}
+
+/* SISTEMA DE PESTAÑAS Y OPCIONES */
+.nav-tabs .nav-link {
+    color: #555;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-bottom: none;
+    margin-right: 5px;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: #e9ecef;
+}
+
+.nav-tabs .nav-link.active, 
+.nav-tabs .nav-link.activo-custom {
+    color: #198754 !important; 
+    background-color: white;
+    border-color: #dee2e6 #dee2e6 white;
+    border-bottom: 2px solid white;
+    margin-bottom: -1px;
+}
+
+/* Utilidades adicionales */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.d-none {
+    display: none !important;
+}
+
+/* TARJETAS DE IMPACTO */
+.btn-group .btn {
+    border-radius: 8px;
+}
+
+.tarjeta-donacion {
+    transition: all 0.2s ease;
+    background-color: #f8f9fa;
+    height: 100%;
+}
+
+.tarjeta-donacion:hover {
+    border-color: #198754 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(25, 135, 84, 0.1);
+}
+
+.tarjeta-donacion.activo {
+    border-color: #198754 !important;
+    background-color: #e8f5e9;
+    box-shadow: 0 0 0 2px rgba(25, 135, 84, 0.3);
+}
+
+/* BOTÓN DONAR */
+.btn-donar {
+    background-color: #92C020; 
+    color: white;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-donar:hover {
+    background-color: #7a9f1a;
+    color: white;
+}
