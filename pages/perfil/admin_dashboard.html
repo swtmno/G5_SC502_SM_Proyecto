@@ -1,1 +1,677 @@
 <!-- Encargado de la página de administración: Mary Paz -->
+ <!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panel de Administración | Hambre Cero</title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <link rel="stylesheet" href="../../public/css/global.css">
+    <link rel="stylesheet" href="../../public/css/admin_dashboard.css">
+
+</head>
+
+<body>
+
+
+
+    <header class="encabezado-principal border-bottom">
+
+        <nav class="navegacion container d-flex justify-content-between align-items-center py-3">
+
+            <ul class="enlaces-nav d-flex list-unstyled gap-4 mb-0">
+
+                <li>
+                    <a href="../../index.html" class="text-decoration-none text-dark">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../donacion.html" class="text-decoration-none text-dark">
+                        Donar
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../reportes.html" class="text-decoration-none text-dark">
+                        Reportes
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../solicitar_apoyo.html" class="text-decoration-none text-dark">
+                        Solicitar Ayuda
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../como_apoyar.html" class="text-decoration-none text-dark">
+                        Cómo Apoyar >
+                    </a>
+                </li>
+                <li>
+                    <a href="perfil/admin_dashboard.html" class="text-decoration-none text-dark">
+                        Administración
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="iconos-nav d-flex gap-3 align-items-center">
+
+                <i class="bi bi-bell fs-5"></i>
+
+                <i class="bi bi-translate fs-5"></i>
+
+                <a href="login.html" class="btn btn-outline-success btn-sm fw-bold">
+                    Cerrar sesión
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <div class="indicador-ruta border-bottom py-3">
+
+        <div class="container">
+
+            <p class="mb-0">
+
+                Te encuentras en:
+
+                <strong>
+                    Panel de Administración
+                </strong>
+
+            </p>
+
+        </div>
+
+    </div>
+
+  
+
+    <main class="container my-5">
+
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+
+            <div>
+
+                <h2 class="fw-bold">
+
+                    Panel de Administración
+
+                </h2>
+
+                <p class="text-muted">
+
+                    Administre usuarios, solicitudes y donaciones del sistema.
+
+                </p>
+
+            </div>
+
+            <button class="btn btn-success">
+
+                <i class="bi bi-arrow-clockwise"></i>
+
+                Actualizar Información
+
+            </button>
+
+        </div>
+
+       
+
+        <div class="row g-4 mb-5">
+
+            <div class="col-md-3">
+
+                <div class="card shadow-sm tarjeta-resumen">
+
+                    <div class="card-body text-center">
+
+                        <i class="bi bi-people-fill icono-resumen"></i>
+
+                        <h2 id="usuarios">
+
+                            248
+
+                        </h2>
+
+                        <p>
+
+                            Usuarios
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card shadow-sm tarjeta-resumen">
+
+                    <div class="card-body text-center">
+
+                        <i class="bi bi-heart-fill icono-resumen"></i>
+
+                        <h2 id="donaciones">
+
+                            176
+
+                        </h2>
+
+                        <p>
+
+                            Donaciones
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card shadow-sm tarjeta-resumen">
+
+                    <div class="card-body text-center">
+
+                        <i class="bi bi-envelope-paper-fill icono-resumen"></i>
+
+                        <h2 id="solicitudes">
+
+                            41
+
+                        </h2>
+
+                        <p>
+
+                            Solicitudes
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card shadow-sm tarjeta-resumen">
+
+                    <div class="card-body text-center">
+
+                        <i class="bi bi-box-seam-fill icono-resumen"></i>
+
+                        <h2>
+
+                            92%
+
+                        </h2>
+
+                        <p>
+
+                            Entregas Completadas
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+       
+
+        <div class="card shadow-sm mb-5">
+
+            <div class="card-header bg-success text-white">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <h5 class="mb-0">
+
+                        Solicitudes de Ayuda
+
+                    </h5>
+
+                    <input class="form-control w-25"
+                        id="buscarSolicitud"
+                        placeholder="Buscar">
+
+                </div>
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead class="table-light">
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Solicitante</th>
+
+                            <th>Tipo</th>
+
+                            <th>Cantón</th>
+
+                            <th>Estado</th>
+
+                            <th>Acciones</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaSolicitudes">
+
+                        
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+     
+
+        <div class="row">
+
+            <!-- Usuarios -->
+
+            <div class="col-lg-6 mb-4">
+
+                <div class="card shadow-sm h-100">
+
+                    <div class="card-header bg-primary text-white">
+
+                        Usuarios Registrados
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <ul class="list-group">
+
+                            <li class="list-group-item d-flex justify-content-between">
+
+                                María González
+
+                                <span class="badge bg-success">
+
+                                    Activo
+
+                                </span>
+
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between">
+
+                                Carlos Mora
+
+                                <span class="badge bg-success">
+
+                                    Activo
+
+                                </span>
+
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between">
+
+                                Fundación Vida
+
+                                <span class="badge bg-warning">
+
+                                    Pendiente
+
+                                </span>
+
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between">
+
+                                Banco de Alimentos
+
+                                <span class="badge bg-success">
+
+                                    Activo
+
+                                </span>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+
+            <div class="col-lg-6 mb-4">
+
+                <div class="card shadow-sm h-100">
+
+                    <div class="card-header bg-warning">
+
+                        Últimas Donaciones
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="mb-3">
+
+                            <strong>
+
+                                Supermercado XYZ
+
+                            </strong>
+
+                            <br>
+
+                            150 Kg de alimentos
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <strong>
+
+                                Empresa ABC
+
+                            </strong>
+
+                            <br>
+
+                            ₡350.000
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+
+                                Comunidad San Rafael
+
+                            </strong>
+
+                            <br>
+
+                            60 Canastas
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+<!-- MODAL INFORMACION SOLICITUD -->
+
+<div class="modal fade" id="modalSolicitudAdmin" tabindex="-1">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+        <div class="modal-content">
+
+
+            <div class="modal-header bg-success text-white">
+
+                <h5 class="modal-title">
+
+                    Información de Solicitud
+
+                </h5>
+
+
+                <button 
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+
+
+            <div class="modal-body">
+
+
+                <div class="row">
+
+
+                    <div class="col-md-6">
+
+                        <p>
+                            <strong>Nombre:</strong>
+                            <span id="infoNombre"></span>
+                        </p>
+
+
+                        <p>
+                            <strong>Cédula:</strong>
+                            <span id="infoCedula"></span>
+                        </p>
+
+
+                        <p>
+                            <strong>Correo:</strong>
+                            <span id="infoCorreo"></span>
+                        </p>
+
+
+                        <p>
+                            <strong>Teléfono:</strong>
+                            <span id="infoTelefono"></span>
+                        </p>
+
+
+                        <p>
+                            <strong>Provincia:</strong>
+                            <span id="infoProvincia"></span>
+                        </p>
+
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+
+                        <p>
+                            <strong>Tipo de ayuda:</strong>
+                            <span id="infoTipo"></span>
+                        </p>
+
+
+                        <p>
+                            <strong>Prioridad:</strong>
+                            <span id="infoPrioridad"></span>
+                        </p>
+
+
+                        <p>
+                            <strong>Personas:</strong>
+                            <span id="infoPersonas"></span>
+                        </p>
+
+
+                        <p>
+                            <strong>Fecha:</strong>
+                            <span id="infoFecha"></span>
+                        </p>
+
+
+                        <p>
+                            <strong>Estado:</strong>
+                            <span id="infoEstado"></span>
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="col-12">
+
+
+                        <hr>
+
+
+                        <p>
+
+                            <strong>Dirección:</strong>
+
+                            <br>
+
+                            <span id="infoDireccion"></span>
+
+                        </p>
+
+
+
+                        <p>
+
+                            <strong>Descripción:</strong>
+
+                            <br>
+
+                            <span id="infoDescripcion"></span>
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <div class="modal-footer">
+
+
+                <button 
+                class="btn btn-danger"
+                id="btnRechazarModal">
+
+                    <i class="bi bi-x-circle"></i>
+
+                    Rechazar
+
+                </button>
+
+
+
+                <button 
+                class="btn btn-success"
+                id="btnAprobarModal">
+
+                    <i class="bi bi-check-circle"></i>
+
+                    Aprobar
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+   
+
+    <button class="btn-accesibilidad position-fixed bottom-0 start-0 m-4 border-0 bg-transparent">
+
+        <i class="bi bi-universal-access-circle fs-1 text-dark"></i>
+
+    </button>
+
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <footer class="bg-light border-top mt-5 pt-5 pb-3">
+    <div class="container">
+        <div class="row">
+            <!-- Columna de Ayuda (Basado en el contenido de 6. Ayuda y Contactos (icono de info).png) -->
+            <div class="col-md-6">
+                <h5 class="text-success fw-bold">¿Necesitas ayuda?</h5>
+                <p>Estamos aquí para apoyarte con tus donaciones y consultas.</p>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-envelope-fill text-warning me-2"></i> soporte@hambrecero.org</li>
+                    <li><i class="bi bi-envelope-fill text-warning me-2"></i> donaciones@hambrecero.org</li>
+                    <li><i class="bi bi-envelope-fill text-warning me-2"></i> comunidades@hambrecero.org</li>
+                </ul>
+            </div>
+
+            <!-- Columna de Contactos -->
+            <div class="col-md-6 text-md-end">
+                <h5 class="text-success fw-bold">Contactos</h5>
+                <p>Direccion: Calle Ejemplo #123, Ciudad, País</p>
+                <p>Tel: +506 7777 8889</p>
+                <div class="fs-4">
+                    <a href="#" class="text-dark me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-dark me-3"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" class="text-dark"><i class="bi bi-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="text-center text-muted small">&copy; 2026 Proyecto Hambre Cero. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+    <script src="../../public/js/admin_dashboard.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

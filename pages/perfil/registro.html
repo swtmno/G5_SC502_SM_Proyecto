@@ -1,1 +1,84 @@
 <!-- Encargado de la página de registro: Nicole Montenegro -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crear cuenta</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../../public/css/registro.css">
+</head>
+
+<body>
+
+    <!-- Botón regresar -->
+    <a href="login.html" class="back-button">
+        &#8592;
+    </a>
+
+    <main class="registro-container">
+
+        <section class="registro-card">
+
+            <h1>Crea tu cuenta</h1>
+
+            <form id="registroForm">
+
+                <div class="input-group">
+                    <label for="correo">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="Email"
+                        required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        required>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPassword">Confirmar contraseña</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Confirm Password"
+                        required>
+                </div>
+
+                <button type="submit">
+                    Crear cuenta
+                </button>
+
+            </form>
+
+            <p class="login-link">
+                ¿Ya tienes una cuenta?
+                <a href="login.html">Iniciar sesión</a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="../public/js/registro.js"></script>
+
+</body>
+
+</html>

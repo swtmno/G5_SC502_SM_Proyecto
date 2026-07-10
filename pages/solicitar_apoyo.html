@@ -1,65 +1,522 @@
 <!-- Encargado de la página de solicitar ayuda:  Mary Paz-->
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Solicitar Ayuda | Hambre Cero</title>
-    
-    <!-- Bootstrap CSS y Bootstrap Icons -->
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Estilos CSS -->
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../public/css/global.css">
-    <link rel="stylesheet" href="../public/css/nombre-del-archivo.css">
+    <link rel="stylesheet" href="../public/css/solicitar_apoyo.css">
+
 </head>
+
 <body>
 
-    <!-- ENCABEZADO GLOBAL -->
-    <header class="encabezado-principal border-bottom">
+
+<header class="encabezado-principal border-bottom">
+
         <nav class="navegacion container d-flex justify-content-between align-items-center py-3">
+
             <ul class="enlaces-nav d-flex list-unstyled gap-4 mb-0">
-                <!-- Rutas ajustadas para navegar desde la carpeta pages -->
-                <li><a href="../index.html" class="text-decoration-none text-dark">Inicio</a></li>
-                <li><a href="donacion.html" class="text-decoration-none text-dark">Donar</a></li>
-                <li><a href="reportes.html" class="text-decoration-none text-dark">Reportes</a></li>
-                <!-- Ponemos  activo a Solicitar Ayuda -->
-                <li><a href="solicitar_apoyo.html" class="activo text-decoration-none">Solicitar Ayuda</a></li>
-                <li><a href="como_apoyar.html" class="text-decoration-none text-dark">Cómo Apoyar ></a></li>
+
+                <li>
+                    <a href="../../index.html" class="text-decoration-none text-dark">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../pages/donacion.html" class="text-decoration-none text-dark">
+                        Donar
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../pages/reportes.html" class="text-decoration-none text-dark">
+                        Reportes
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../pages/solicitar_apoyo.html" class="text-decoration-none text-dark">
+                        Solicitar Ayuda
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../pages/como_apoyar.html" class="text-decoration-none text-dark">
+                        Cómo Apoyar >
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perfil/admin_dashboard.html" class="text-decoration-none text-dark">
+                        Administración
+                    </a>
+                </li>
+
             </ul>
-            
-            <div class="iconos-nav d-flex gap-3">
-                <i class="bi bi-bell fs-5" title="Notificaciones"></i>
-                <i class="bi bi-translate fs-5" title="Idioma"></i>
-                <a href="../pages/perfil/login.html" class="btn btn-outline-success btn-sm fw-bold">Ingresar</a>
+
+            <div class="iconos-nav d-flex gap-3 align-items-center">
+
+                <i class="bi bi-bell fs-5"></i>
+
+                <i class="bi bi-translate fs-5"></i>
+
+                <a href="login.html" class="btn btn-outline-success btn-sm fw-bold">
+                    Cerrar sesión
+                </a>
+
             </div>
+
         </nav>
+
     </header>
 
-    <!-- INDICADOR DE RUTA -->
-    <div class="indicador-ruta border-bottom py-3 mb-4">
+
+
+    <div class="border-bottom py-3">
+
         <div class="container">
-            <p class="mb-0">Te encuentras en: <strong>Solicitar Ayuda</strong></p>
+
+            <small>
+
+                Te encuentras en:
+
+                <strong>Solicitar Ayuda</strong>
+
+            </small>
+
         </div>
+
     </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="container my-5">
-        
-        <!-- El Encargado de la pagina escribirá aquí adentro toda su estructura con Bootstrap!! -->
-        <h1>Título de esta sección</h1>
-        <p>Contenido principal...</p>
 
-    </main>
 
-    <!-- Botón flotante de accesibilidad -->
-    <button class="btn-accesibilidad position-fixed bottom-0 start-0 m-4 border-0 bg-transparent" aria-label="Opciones de accesibilidad">
+    <section class="hero-ayuda py-5">
+
+        <div class="container text-center">
+
+            <h1 class="fw-bold">
+
+                Solicitud de Ayuda
+
+            </h1>
+
+            <p class="text-muted mt-3">
+
+                Complete el siguiente formulario para registrar su solicitud.
+                Nuestro equipo revisará la información y le contactará lo antes posible.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="container mb-5">
+
+        <form id="formAyuda">
+
+            <div class="card shadow-sm">
+
+                <div class="card-body p-4">
+
+                    <h4 class="mb-4">
+
+                        Información del Solicitante
+
+                    </h4>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+
+                                Nombre Completo
+
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="nombre"
+                                required>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+
+                                Número de Identificación
+
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="cedula"
+                                required>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+
+                                Correo Electrónico
+
+                            </label>
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="correo"
+                                required>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+
+                                Teléfono
+
+                            </label>
+
+                            <input
+                                type="tel"
+                                class="form-control"
+                                id="telefono"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <hr class="my-4">
+
+                    <h4 class="mb-4">
+
+                        Información de la Solicitud
+
+                    </h4>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+
+                                Tipo de Ayuda
+
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="tipoAyuda"
+                                required>
+
+                                <option value="">
+
+                                    Seleccione...
+
+                                </option>
+
+                                <option>
+
+                                    Alimentos
+
+                                </option>
+
+                                <option>
+
+                                    Donación Monetaria
+
+                                </option>
+
+                                <option>
+
+                                    Canasta Básica
+
+                                </option>
+
+                                <option>
+
+                                    Productos de Higiene
+
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+
+                                Prioridad
+
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="prioridad">
+
+                                <option>
+
+                                    Baja
+
+                                </option>
+
+                                <option>
+
+                                    Media
+
+                                </option>
+
+                                <option>
+
+                                    Alta
+
+                                </option>
+
+                                <option>
+
+                                    Urgente
+
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+
+                                Cantidad de Personas Beneficiadas
+
+                            </label>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="personas"
+                                min="1"
+                                required>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+
+                                Provincia
+
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="provincia">
+
+                                <option>San José</option>
+                                <option>Alajuela</option>
+                                <option>Cartago</option>
+                                <option>Heredia</option>
+                                <option>Guanacaste</option>
+                                <option>Puntarenas</option>
+                                <option>Limón</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="col-12 mb-3">
+
+                            <label class="form-label">
+
+                                Dirección Exacta
+
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                rows="3"
+                                id="direccion"
+                                required></textarea>
+
+                        </div>
+
+                        <div class="col-12 mb-3">
+
+                            <label class="form-label">
+
+                                Describa su situación
+
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                rows="5"
+                                id="descripcion"
+                                placeholder="Explique brevemente la situación que motiva la solicitud."
+                                required></textarea>
+
+                        </div>
+
+                    </div>
+
+                    <hr class="my-4">
+
+                    <h4>
+
+                        Ubicación
+
+                    </h4>
+
+                    <p class="text-muted">
+
+                        En una futura versión este apartado permitirá seleccionar la ubicación en un mapa interactivo.
+
+                    </p>
+
+                    <div class="mapa-real rounded overflow-hidden">
+
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62879.67887503433!2d-84.15454515043318!3d9.935627678711823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e342c50d15c5%3A0xe6746a6a9f11b882!2zU2FuIEpvc8Op!5e0!3m2!1ses-419!2scr!4v1783556938593!5m2!1ses-419!2scr"
+                        width="100%"
+                        height="320"
+                        style="border:0;"
+                        loading="lazy">
+                    </iframe>
+
+                </div>
+
+                    <div class="form-check mt-4">
+
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="terminos"
+                            required>
+
+                        <label class="form-check-label">
+
+                            Confirmo que la información proporcionada es verdadera.
+
+                        </label>
+
+                    </div>
+
+                    <div class="text-end mt-4">
+
+                        <button
+                            type="reset"
+                            class="btn btn-outline-secondary">
+
+                            Limpiar
+
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="btn btn-success">
+
+                            <i class="bi bi-send-fill"></i>
+
+                            Enviar Solicitud
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+
+    <div
+        class="modal fade"
+        id="modalSolicitud"
+        tabindex="-1">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header bg-success text-white">
+
+                    <h5 class="modal-title">
+
+                        Solicitud Registrada
+
+                    </h5>
+
+                </div>
+
+                <div class="modal-body text-center">
+
+                    <i class="bi bi-check-circle-fill text-success fs-1"></i>
+
+                    <p class="mt-3">
+
+                        Su solicitud fue enviada correctamente.
+
+                        Nuestro equipo la revisará y se comunicará con usted.
+
+                    </p>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button
+                        class="btn btn-success"
+                        data-bs-dismiss="modal">
+
+                        Aceptar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+   <button class="btn-accesibilidad position-fixed bottom-0 start-0 m-4 border-0 bg-transparent">
+
         <i class="bi bi-universal-access-circle fs-1 text-dark"></i>
+
     </button>
 
-    <!-- Footer -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FOOTER -->
 
         <footer class="bg-light border-top mt-5 pt-5 pb-3">
     <div class="container">
@@ -91,5 +548,11 @@
         <p class="text-center text-muted small">&copy; 2026 Proyecto Hambre Cero. Todos los derechos reservados.</p>
     </div>
 </footer>
+
+    <script src="../public/js/solicitar_apoyo.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>

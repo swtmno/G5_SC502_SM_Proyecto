@@ -1,5 +1,3 @@
-<!-- Encargado de la página de cómo apoyar:  Javier Martinez -->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,90 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cómo Apoyar | Hambre Cero</title>
     
-    <!-- Bootstrap CSS y Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    <!-- Estilos CSS-->
-    <link rel="stylesheet" href="../public/css/global.css">
-    <link rel="stylesheet" href="../public/css/nombre-del-archivo.css">
 </head>
-<body>
+<body class="bg-white">
 
-    <!-- ENCABEZADO GLOBAL -->
-    <header class="encabezado-principal border-bottom">
+    <header class="encabezado-principal border-bottom bg-white">
         <nav class="navegacion container d-flex justify-content-between align-items-center py-3">
             <ul class="enlaces-nav d-flex list-unstyled gap-4 mb-0">
-                <!-- Rutas ajustadas para navegar desde la carpeta pages -->
                 <li><a href="../index.html" class="text-decoration-none text-dark">Inicio</a></li>
                 <li><a href="donacion.html" class="text-decoration-none text-dark">Donar</a></li>
                 <li><a href="reportes.html" class="text-decoration-none text-dark">Reportes</a></li>
                 <li><a href="solicitar_apoyo.html" class="text-decoration-none text-dark">Solicitar Ayuda</a></li>
-                <!-- Se lo ponemos a Cómo Apoyar -->
-                <li><a href="como_apoyar.html" class="activo text-decoration-none">Cómo Apoyar ></a></li>
+                <li><a href="como_apoyar.html" class="text-decoration-none fw-bold" style="color: #16a34a;">Cómo Apoyar </a></li>
             </ul>
             
-            <div class="iconos-nav d-flex gap-3">
-                <i class="bi bi-bell fs-5" title="Notificaciones"></i>
-                <i class="bi bi-translate fs-5" title="Idioma"></i>
+            <div class="iconos-nav d-flex gap-3 align-items-center text-dark">
+                <i class="bi bi-info-circle fs-5" style="cursor: pointer;" title="Información"></i>
+                <a href="notificaciones.html" class="text-dark"><i class="bi bi-bell fs-5" title="Notificaciones"></i></a>
+                <i class="bi bi-translate fs-5" style="cursor: pointer;" title="Idioma"></i>
                 <a href="../pages/perfil/login.html" class="btn btn-outline-success btn-sm fw-bold">Ingresar</a>
             </div>
         </nav>
     </header>
 
-    <!-- INDICADOR DE RUTA -->
     <div class="indicador-ruta border-bottom py-3 mb-4">
         <div class="container">
-            <p class="mb-0">Te encuentras en: <strong>Cómo Apoyar</strong></p>
+            <p class="mb-0 text-secondary">Te encuentras en: <strong class="text-dark">Como Apoyar</strong></p>
         </div>
     </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
     <main class="container my-5">
         
-        <!-- El Encargado de la pagina escribirá aquí adentro toda su estructura con Bootstrap!! -->
-        <h1>Título de esta sección</h1>
-        <p>Contenido principal...</p>
+        <h2 class="fw-bold mb-4" style="color: #ea580c; font-size: 28px;">¿Como apoyar?</h2>
+        
+        <div class="mb-5 text-secondary fs-5" style="max-width: 850px; line-height: 1.6;">
+            <p class="mb-4">
+                Existen varias formas de contribuir y ayudar a las comunidades que más lo necesitan. 
+                Puedes realizar donaciones de alimentos, aportar recursos para los programas de ayuda o 
+                participar como voluntario en las campañas activas.
+            </p>
+            <p class="mb-4">
+                Cada aporte, por pequeño que sea, suma y marca una diferencia.
+            </p>
+            <p class="fw-bold text-dark mt-4">
+                Tu apoyo ayuda a mejorar la seguridad alimentaria y a fortalecer el bienestar de cientos de 
+                familias. ¡Únete y sé parte del cambio!
+            </p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-4 mt-5">
+            <button class="btn text-white fw-bold py-2 px-4 shadow-sm" style="background-color: #f97316; border-radius: 50px; border: none; min-width: 180px; font-size: 16px;">
+                Voluntariado
+            </button>
+            <button class="btn text-white fw-bold py-2 px-4 shadow-sm" style="background-color: #f97316; border-radius: 50px; border: none; min-width: 180px; font-size: 16px;">
+                Donar alimentos
+            </button>
+            <button class="btn text-white fw-bold py-2 px-4 shadow-sm" style="background-color: #f97316; border-radius: 50px; border: none; min-width: 180px; font-size: 16px;">
+                Donacion monetaria
+            </button>
+        </div>
 
     </main>
 
-    <!-- Botón flotante de accesibilidad -->
-    <button class="btn-accesibilidad position-fixed bottom-0 start-0 m-4 border-0 bg-transparent" aria-label="Opciones de accesibilidad">
+    <button class="position-fixed bottom-0 start-0 m-4 border-0 bg-transparent" aria-label="Opciones de accesibilidad" style="z-index: 1050;">
         <i class="bi bi-universal-access-circle fs-1 text-dark"></i>
     </button>
 
-    <!-- Footer -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-        <footer class="bg-light border-top mt-5 pt-5 pb-3">
-    <div class="container">
-        <div class="row">
-            <!-- Columna de Ayuda (Basado en el contenido de 6. Ayuda y Contactos (icono de info).png) -->
-            <div class="col-md-6">
-                <h5 class="text-success fw-bold">¿Necesitas ayuda?</h5>
-                <p>Estamos aquí para apoyarte con tus donaciones y consultas.</p>
-                <ul class="list-unstyled">
-                    <li><i class="bi bi-envelope-fill text-warning me-2"></i> soporte@hambrecero.org</li>
-                    <li><i class="bi bi-envelope-fill text-warning me-2"></i> donaciones@hambrecero.org</li>
-                    <li><i class="bi bi-envelope-fill text-warning me-2"></i> comunidades@hambrecero.org</li>
-                </ul>
-            </div>
+    <footer class="bg-light border-top mt-5 pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-success fw-bold">¿Necesitas ayuda?</h5>
+                    <p>Estamos aquí para apoyarte con tus donaciones y consultas.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-envelope-fill text-warning me-2"></i> soporte@hambrecero.org</li>
+                        <li><i class="bi bi-envelope-fill text-warning me-2"></i> donaciones@hambrecero.org</li>
+                        <li><i class="bi bi-envelope-fill text-warning me-2"></i> comunidades@hambrecero.org</li>
+                    </ul>
+                </div>
 
-            <!-- Columna de Contactos -->
-            <div class="col-md-6 text-md-end">
-                <h5 class="text-success fw-bold">Contactos</h5>
-                <p>Direccion: Calle Ejemplo #123, Ciudad, País</p>
-                <p>Tel: +506 7777 8889</p>
-                <div class="fs-4">
-                    <a href="#" class="text-dark me-3"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-dark me-3"><i class="bi bi-whatsapp"></i></a>
-                    <a href="#" class="text-dark"><i class="bi bi-facebook"></i></a>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="text-success fw-bold">Contactos</h5>
+                    <p>Direccion: Calle Ejemplo #123, Ciudad, País</p>
+                    <p>Tel: +506 7777 8889</p>
+                    <div class="fs-4">
+                        <a href="#" class="text-dark me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-dark me-3"><i class="bi bi-whatsapp"></i></a>
+                        <a href="#" class="text-dark"><i class="bi bi-facebook"></i></a>
+                    </div>
                 </div>
             </div>
+            <hr>
+            <p class="text-center text-muted small">&copy; 2026 Proyecto Hambre Cero. Todos los derechos reservados.</p>
         </div>
-        <hr>
-        <p class="text-center text-muted small">&copy; 2026 Proyecto Hambre Cero. Todos los derechos reservados.</p>
-    </div>
-</footer>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

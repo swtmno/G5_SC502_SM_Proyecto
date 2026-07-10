@@ -1,0 +1,122 @@
+<!-- Encargado del style de login: Nicole Montenegro -->
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#fff;
+}
+
+.back-button{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+    background: #8d8d8d;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    transition: .3s;
+}
+
+.back-button:hover{
+    background: #6f6f6f;
+}
+
+
+.login-container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-card{
+    width:85%;
+    max-width:1300px;
+}
+
+.login-card h1{
+    text-align:center;
+    color:#1594dd;
+    font-size:40px;
+    font-weight:700;
+    margin-bottom:70px;
+}
+
+.input-group{
+    margin-bottom:35px;
+}
+
+.input-group label{
+    display:none;
+}
+
+.input-group input{
+    width:100%;
+    height:70px;
+    border-radius:12px;
+    border:2px solid #2196f3;
+    background:#F4F5FF;
+    padding:0 25px;
+    font-size:22px;
+}
+
+.input-group input::placeholder{
+    color:#666;
+}
+
+.forgot-password{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    color:#1565C0;
+    font-size:18px;
+    margin:55px 0;
+}
+
+button{
+    display:block;
+    width:360px;
+    height:70px;
+    margin:0 auto;
+    border:none;
+    border-radius:22px;
+    background:#1FA0E5;
+    color:white;
+    font-size:26px;
+    font-weight:600;
+    cursor:pointer;
+
+    box-shadow:0 10px 25px rgba(31,160,229,.35);
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+.register-link{
+    margin-top:45px;
+    text-align:center;
+    font-size:18px;
+}
+
+.register-link a{
+    color:#333;
+    text-decoration:none;
+}
