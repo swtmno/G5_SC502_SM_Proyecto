@@ -39,7 +39,8 @@ formulario.addEventListener("submit", function(event){
     }
 
     alert("Cuenta creada correctamente.");
+    window.location.href = "../../index.html";
 
-    // Aquí luego se enviarán los datos al servidor
+    //registro falso, datos serán enviados al server con el backend 
 
 });
