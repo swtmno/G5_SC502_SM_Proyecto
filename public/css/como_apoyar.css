@@ -1,0 +1,46 @@
+
+.enlace-activo {
+    color: #16a34a !important;
+}
+
+.titulo-seccion {
+    color: #ea580c; 
+    font-size: 28px;
+}
+
+.contenedor-texto {
+    max-width: 850px; 
+    line-height: 1.6;
+}
+
+.boton-accion {
+    background-color: #f97316 !important; 
+    color: #ffffff !important;            
+    border-radius: 50px !important; 
+    border: none !important; 
+    min-width: 180px; 
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.boton-accion:hover {
+    background-color: #ea580c !important; 
+    color: #ffffff !important;
+}
+
+.boton-participar {
+    border-radius: 50px; 
+    min-width: 180px; 
+    font-size: 16px;
+}
+
+.contenedor-formulario {
+    max-width: 500px;
+}
+
+.icono-exito {
+    font-size: 3rem;
+}

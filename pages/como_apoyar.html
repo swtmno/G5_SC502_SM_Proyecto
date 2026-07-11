@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cómo Apoyar | Hambre Cero</title>
     
+    <!-- Bootstrap CSS y Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link class="styles" rel="stylesheet" href="../public/css/como_apoyar.css">
 </head>
 <body class="bg-white">
 
@@ -17,7 +21,7 @@
                 <li><a href="donacion.html" class="text-decoration-none text-dark">Donar</a></li>
                 <li><a href="reportes.html" class="text-decoration-none text-dark">Reportes</a></li>
                 <li><a href="solicitar_apoyo.html" class="text-decoration-none text-dark">Solicitar Ayuda</a></li>
-                <li><a href="como_apoyar.html" class="text-decoration-none fw-bold" style="color: #16a34a;">Cómo Apoyar </a></li>
+                <li><a href="como_apoyar.html" class="text-decoration-none fw-bold enlace-activo">Cómo Apoyar </a></li>
             </ul>
             
             <div class="iconos-nav d-flex gap-3 align-items-center text-dark">
@@ -37,9 +41,9 @@
 
     <main class="container my-5">
         
-        <h2 class="fw-bold mb-4" style="color: #ea580c; font-size: 28px;">¿Como apoyar?</h2>
+        <h2 class="fw-bold mb-4 titulo-seccion">¿Como apoyar?</h2>
         
-        <div class="mb-5 text-secondary fs-5" style="max-width: 850px; line-height: 1.6;">
+        <div class="mb-5 text-secondary fs-5 contenedor-texto">
             <p class="mb-4">
                 Existen varias formas de contribuir y ayudar a las comunidades que más lo necesitan. 
                 Puedes realizar donaciones de alimentos, aportar recursos para los programas de ayuda o 
@@ -55,32 +59,26 @@
         </div>
 
         <div class="d-flex flex-wrap gap-4 mt-5">
-            <button class="btn text-white fw-bold py-2 px-4 shadow-sm" style="background-color: #f97316; border-radius: 50px; border: none; min-width: 180px; font-size: 16px;">
+            <a href="donacion.html" class="btn text-white fw-bold py-2 px-4 shadow-sm boton-accion">
                 Voluntariado
-            </button>
-            <button class="btn text-white fw-bold py-2 px-4 shadow-sm" style="background-color: #f97316; border-radius: 50px; border: none; min-width: 180px; font-size: 16px;">
+            </a>
+            <a href="donacion.html" class="btn text-white fw-bold py-2 px-4 shadow-sm boton-accion">
                 Donar alimentos
-            </button>
-            <button class="btn text-white fw-bold py-2 px-4 shadow-sm" style="background-color: #f97316; border-radius: 50px; border: none; min-width: 180px; font-size: 16px;">
+            </a>
+            <a href="donacion.html" class="btn text-white fw-bold py-2 px-4 shadow-sm boton-accion">
                 Donacion monetaria
-            </button>
+            </a>
         </div>
 
-        <!-- ========================================== -->
-        <!-- BOTÓN Y FORMULARIO CON MENSAJE DE ÉXITO    -->
-        <!-- ========================================== -->
         <div class="mt-5 pt-4 border-top">
-            <!-- Botón para accionar el despliegue -->
-            <button class="btn btn-success fw-bold py-2 px-4 shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#formularioParticipar" aria-expanded="false" aria-controls="formularioParticipar" style="border-radius: 50px; min-width: 180px; font-size: 16px;">
+            <button class="btn btn-success fw-bold py-2 px-4 shadow-sm boton-participar" type="button" data-bs-toggle="collapse" data-bs-target="#formularioParticipar" aria-expanded="false" aria-controls="formularioParticipar">
                 Quiero participar
             </button>
 
-            <!-- Contenedor del formulario colapsable -->
-            <div class="collapse mt-4" id="formularioParticipar" style="max-width: 500px;">
+            <div class="collapse mt-4 contenedor-formulario" id="formularioParticipar">
                 <div class="card card-body shadow-sm border-light p-4">
                     
-                    <!-- Formulario de datos -->
-                    <form id="formRegistro" onsubmit="event.preventDefault(); document.getElementById('formRegistro').classList.add('d-none'); document.getElementById('mensajeExito').classList.remove('d-none');">
+                    <form id="formRegistro">
                         <div class="mb-3">
                             <label for="nombreInput" class="form-label fw-bold text-dark">Nombre</label>
                             <input type="text" class="form-control" id="nombreInput" placeholder="Tu nombre completo" required>
@@ -96,9 +94,8 @@
                         <button type="submit" class="btn btn-outline-success fw-bold w-100 mt-2">Enviar solicitud</button>
                     </form>
 
-                    <!-- Mensaje de éxito (oculto por defecto con d-none) -->
                     <div id="mensajeExito" class="text-center d-none py-3">
-                        <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+                        <i class="bi bi-check-circle-fill text-success icono-exito"></i>
                         <h4 class="fw-bold text-success mt-2">Solicitud enviada</h4>
                         <p class="text-secondary small mb-0">Gracias por querer formar parte del cambio. Nos comunicaremos contigo pronto.</p>
                     </div>
@@ -142,6 +139,8 @@
         </div>
     </footer>
 
+    <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../public/js/como_apoyar.js"></script>
 </body>
 </html>
