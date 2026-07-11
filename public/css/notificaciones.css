@@ -1,0 +1,30 @@
+
+
+.icono-notificacion-activa {
+    color: #16a34a;
+}
+
+.ruta-texto {
+    font-size: 14px;
+}
+
+.boton-regresar {
+    width: 44px; 
+    height: 44px; 
+    background-color: #64748b; 
+    border: none;
+}
+
+.boton-regresar:hover {
+    background-color: #475569;
+}
+
+.titulo-notificaciones {
+    color: #16a34a; 
+    font-size: 28px; 
+    letter-spacing: -0.5px;
+}
+
+.texto-vacio {
+    color: #4b5563 !important;
+}
