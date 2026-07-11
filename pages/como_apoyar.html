@@ -65,16 +65,22 @@
                 Donacion monetaria
             </button>
         </div>
-       
+
+        <!-- ========================================== -->
+        <!-- BOTÓN Y FORMULARIO CON MENSAJE DE ÉXITO    -->
+        <!-- ========================================== -->
         <div class="mt-5 pt-4 border-top">
+            <!-- Botón para accionar el despliegue -->
             <button class="btn btn-success fw-bold py-2 px-4 shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#formularioParticipar" aria-expanded="false" aria-controls="formularioParticipar" style="border-radius: 50px; min-width: 180px; font-size: 16px;">
                 Quiero participar
             </button>
 
-            <!--  formulario  -->
+            <!-- Contenedor del formulario colapsable -->
             <div class="collapse mt-4" id="formularioParticipar" style="max-width: 500px;">
                 <div class="card card-body shadow-sm border-light p-4">
-                    <form>
+                    
+                    <!-- Formulario de datos -->
+                    <form id="formRegistro" onsubmit="event.preventDefault(); document.getElementById('formRegistro').classList.add('d-none'); document.getElementById('mensajeExito').classList.remove('d-none');">
                         <div class="mb-3">
                             <label for="nombreInput" class="form-label fw-bold text-dark">Nombre</label>
                             <input type="text" class="form-control" id="nombreInput" placeholder="Tu nombre completo" required>
@@ -89,6 +95,14 @@
                         </div>
                         <button type="submit" class="btn btn-outline-success fw-bold w-100 mt-2">Enviar solicitud</button>
                     </form>
+
+                    <!-- Mensaje de éxito (oculto por defecto con d-none) -->
+                    <div id="mensajeExito" class="text-center d-none py-3">
+                        <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+                        <h4 class="fw-bold text-success mt-2">Solicitud enviada</h4>
+                        <p class="text-secondary small mb-0">Gracias por querer formar parte del cambio. Nos comunicaremos contigo pronto.</p>
+                    </div>
+
                 </div>
             </div>
         </div>
