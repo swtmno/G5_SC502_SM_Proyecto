@@ -23,15 +23,28 @@ const inputDesperdiciado = document.getElementById("inputDesperdiciado");
    ESTRUCTURA DE DATOS EN MEMORIA (USO DE LET PARA EL ARREGLO)
    Se inicializa con los datos exactos del Prototipo de Diseño (3. Reportes.png)
    ========================================================================== */
-let historialReportes = [
-    { id: "USR-001", recolectado: 1243, entregado: 1003, desperdiciado: 56, fecha: "2025/12/01" },
-    { id: "USR-002", recolectado: 567, entregado: 460, desperdiciado: 25, fecha: "2025/12/01" },
-    { id: "USR-001", recolectado: 267, entregado: 192, desperdiciado: 98, fecha: "2025/12/01" },
-    { id: "USR-003", recolectado: 456, entregado: 456, desperdiciado: 11, fecha: "2025/12/01" },
-    { id: "USR-002", recolectado: 121, entregado: 78, desperdiciado: 19, fecha: "2025/12/01" },
-    { id: "USR-001", recolectado: 321, entregado: 233, desperdiciado: 34, fecha: "2025/12/01" },
-    { id: "USR-004", recolectado: 432, entregado: 304, desperdiciado: 66, fecha: "2025/12/01" }
-];
+let historialReportes = [];
+
+async function cargarBalances() {
+    try {
+        const res = await fetch("../api/obtener_balances.php");
+        const json = await res.json();
+        if (json.success && json.data) {
+            historialReportes = json.data.map(item => ({
+                id: String(item.id_responsable), // Convertimos a string para búsqueda
+                recolectado: parseFloat(item.recolectados_kg),
+                entregado: parseFloat(item.entregados_kg),
+                desperdiciado: parseFloat(item.desperdiciados_kg),
+                fecha: item.fecha_registro
+            }));
+            renderizarTabla();
+        } else {
+            console.error("No se pudo cargar la data", json.message);
+        }
+    } catch (e) {
+        console.error("Error al cargar balances:", e);
+    }
+}
 
 /* ==========================================================================
    FUNCIÓN DE RENDERIZADO EN EL DOM (USO DE TEMPLATE LITERALS)
@@ -94,9 +107,8 @@ function mostrarAlerta(mensaje, tipo) {
 // 1. Evento para el botón "Actualizar lista"
 btnActualizarLista.addEventListener("click", function (event) {
     event.preventDefault();
-
-    renderizarTabla();
-    mostrarAlerta(`<i class="bi bi-check-circle-fill me-2"></i> Lista de reportes actualizada correctamente desde memoria.`, "success");
+    cargarBalances();
+    mostrarAlerta(`<i class="bi bi-check-circle-fill me-2"></i> Lista de reportes actualizada desde la base de datos.`, "success");
 });
 
 // 2. Evento para el botón "Ver mi reporte" (Filtrado por ID)
@@ -126,7 +138,7 @@ btnVerReporte.addEventListener("click", function (event) {
 
     if (registrosEncontrados === 0) {
         detalleReporteUsuario.innerHTML = "";
-        mostrarAlerta(`<i class="bi bi-info-circle-fill me-2"></i> No se encontraron reportes registrados para el ID: <strong>${idBuscado}</strong>. (Prueba con USR-001, USR-002 o USR-003).`, "info");
+        mostrarAlerta(`<i class="bi bi-info-circle-fill me-2"></i> No se encontraron reportes registrados para el ID de Usuario BD: <strong>${idBuscado}</strong>. (Ingrese solo números si son usuarios de BD).`, "info");
         return;
     }
 
@@ -180,27 +192,48 @@ if (formNuevoReporte) {
             return;
         }
 
-        const hoy = new Date();
-        const anio = hoy.getFullYear();
-        const mes = String(hoy.getMonth() + 1).padStart(2, "0");
-        const dia = String(hoy.getDate()).padStart(2, "0");
-        const fechaActual = `${anio}/${mes}/${dia}`;
-
-        const nuevoReporte = {
-            id: id,
-            recolectado: recolectado,
-            entregado: entregado,
-            desperdiciado: desperdiciado,
-            fecha: fechaActual
+        const payload = {
+            id_responsable: id, // Esperamos que sea un número para la BD
+            recolectados_kg: recolectado,
+            entregados_kg: entregado,
+            desperdiciados_kg: desperdiciado
         };
 
-        historialReportes.push(nuevoReporte);
-        renderizarTabla();
-        formNuevoReporte.reset();
+        const btnGuardar = formNuevoReporte.querySelector('button[type="submit"]');
+        if (btnGuardar) {
+            btnGuardar.disabled = true;
+            btnGuardar.textContent = 'Guardando...';
+        }
 
-        mostrarAlerta(`<i class="bi bi-check-lg me-2"></i> ¡Nuevo balance registrado con éxito para el ID <strong>${id}</strong>!`, "success");
+        fetch('../api/guardar_balance.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (btnGuardar) {
+                btnGuardar.disabled = false;
+                btnGuardar.innerHTML = '<i class="bi bi-save me-2"></i> Registrar Balance';
+            }
+            
+            if (data.success) {
+                cargarBalances(); // Recargar datos reales
+                formNuevoReporte.reset();
+                mostrarAlerta(`<i class="bi bi-check-lg me-2"></i> ¡Nuevo balance registrado con éxito para el ID <strong>${id}</strong>!`, "success");
+            } else {
+                mostrarAlerta(`<i class="bi bi-exclamation-triangle me-2"></i> ${data.message}`, "danger");
+            }
+        })
+        .catch(err => {
+            if (btnGuardar) {
+                btnGuardar.disabled = false;
+                btnGuardar.innerHTML = '<i class="bi bi-save me-2"></i> Registrar Balance';
+            }
+            mostrarAlerta('<i class="bi bi-wifi-off me-2"></i> Error de conexión con el servidor.', "danger");
+        });
     });
 }
 
 // Inicialización
-renderizarTabla();
+cargarBalances();

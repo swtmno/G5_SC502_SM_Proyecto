@@ -3,7 +3,7 @@
 $host = "localhost";
 $puerto = "3306";
 $usuario = "root";
-$password = "HambreCero2026!";
+$password = "";
 $base_datos = "hambre_cero";
 
 try {

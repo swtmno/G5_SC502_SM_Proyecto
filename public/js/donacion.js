@@ -110,8 +110,42 @@ const alternarFrecuencia = () => {
         }
 
         if (valido) {
-            const modalDonacion = new bootstrap.Modal(document.getElementById('modalDonacion'));
-            modalDonacion.show();
+            // Preparar datos para el backend
+            const payload = {
+                categoria: 'Monetaria', // Siempre Monetaria en esta vista
+                tipo_frecuencia: esMensual ? 'Mensual' : 'Única',
+                metodo_pago: 'Tarjeta',
+                monto: montoActual,
+                plan_mensual: esMensual ? (document.querySelector('.tarjeta-donacion.activo h5')?.textContent || 'Monto Libre') : 'N/A'
+            };
+
+            btnTotal.disabled = true;
+            btnTotal.textContent = "Procesando...";
+
+            fetch('../api/guardar_donacion.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(data => {
+                btnTotal.disabled = false;
+                actualizarBoton();
+                if (data.success) {
+                    const modalDonacion = new bootstrap.Modal(document.getElementById('modalDonacion'));
+                    modalDonacion.show();
+                    formTarjeta.reset();
+                    montoActual = 0;
+                    actualizarBoton();
+                } else {
+                    alert(data.message || 'Error al registrar donación');
+                }
+            })
+            .catch(err => {
+                btnTotal.disabled = false;
+                actualizarBoton();
+                alert('Error de conexión.');
+            });
         }
     });
 

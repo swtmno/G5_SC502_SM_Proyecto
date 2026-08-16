@@ -35,47 +35,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        let solicitudes = JSON.parse(localStorage.getItem("solicitudes")) || [];
-
-        const nuevaSolicitud = {
-
-            id: solicitudes.length + 1,
-
-            nombre,
-
-            cedula,
-
-            correo,
-
-            telefono,
-
-            tipoAyuda,
-
-            prioridad,
-
-            personas,
-
-            provincia,
-
-            direccion,
-
-            descripcion,
-
-            fecha: new Date().toLocaleDateString(),
-
-            estado: "Pendiente"
-
+        const payload = {
+            nombre_solicitante: nombre,
+            identificacion: cedula,
+            correo: correo,
+            telefono: telefono,
+            tipo_ayuda: tipoAyuda,
+            prioridad: prioridad,
+            cantidad_personas: parseInt(personas),
+            provincia: provincia,
+            direccion_exacta: direccion,
+            descripcion_situacion: descripcion
         };
 
-        solicitudes.push(nuevaSolicitud);
+        const btnSubmit = formulario.querySelector('button[type="submit"]');
+        if (btnSubmit) {
+            btnSubmit.disabled = true;
+            btnSubmit.textContent = 'Enviando...';
+        }
 
-        localStorage.setItem("solicitudes", JSON.stringify(solicitudes));
-
-        const modal = new bootstrap.Modal(document.getElementById("modalSolicitud"));
-
-        modal.show();
-
-        formulario.reset();
+        fetch('../api/guardar_solicitud.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (btnSubmit) {
+                btnSubmit.disabled = false;
+                btnSubmit.textContent = 'Enviar Solicitud';
+            }
+            if (data.success) {
+                const modal = new bootstrap.Modal(document.getElementById("modalSolicitud"));
+                modal.show();
+                formulario.reset();
+            } else {
+                alert(data.message || 'Error al enviar la solicitud.');
+            }
+        })
+        .catch(err => {
+            if (btnSubmit) {
+                btnSubmit.disabled = false;
+                btnSubmit.textContent = 'Enviar Solicitud';
+            }
+            alert('Error de conexión con el servidor.');
+        });
 
     });
 
