@@ -15,6 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $nombre = trim($_POST['nombre'] ?? '');
 $correo = trim($_POST['correo'] ?? '');
 $password = $_POST['password'] ?? '';
+$rol = trim($_POST['rol'] ?? 'DONANTE');
+
+$rolesPermitidos = ['DONANTE', 'SOLICITANTE', 'VOLUNTARIO', 'ORGANIZACION'];
+if (!in_array($rol, $rolesPermitidos)) {
+    $rol = 'DONANTE';
+}
 
 if ($nombre === '' || $correo === '' || $password === '') {
     echo json_encode([
@@ -64,13 +70,14 @@ try {
         "INSERT INTO usuarios
         (nombre, correo, password_hash, rol, estado)
         VALUES
-        (:nombre, :correo, :password_hash, 'DONANTE', 'ACTIVO')"
+        (:nombre, :correo, :password_hash, :rol, 'ACTIVO')"
     );
 
     $insertar->execute([
         ':nombre' => $nombre,
         ':correo' => $correo,
-        ':password_hash' => $passwordHash
+        ':password_hash' => $passwordHash,
+        ':rol' => $rol
     ]);
 
     echo json_encode([

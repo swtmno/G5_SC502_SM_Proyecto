@@ -43,11 +43,14 @@ formulario.addEventListener("submit", async function(event) {
         return;
     }
 
+    const rol = document.getElementById("rol").value;
+
     const datos = new FormData();
 
     datos.append("nombre", nombre);
     datos.append("correo", correo);
     datos.append("password", password);
+    datos.append("rol", rol);
 
     try {
 

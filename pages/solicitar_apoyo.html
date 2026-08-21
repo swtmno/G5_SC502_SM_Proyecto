@@ -55,13 +55,7 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="../pages/como_apoyar.html" class="text-decoration-none text-dark">
-                        Cómo Apoyar >
-                    </a>
-                </li>
-
-                <li>
+                <li id="navAdminItem" class="d-none">
                     <a href="perfil/admin_dashboard.html" class="text-decoration-none text-dark">
                         Administración
                     </a>
@@ -71,11 +65,17 @@
 
             <div class="iconos-nav d-flex gap-3 align-items-center">
 
-                <i class="bi bi-bell fs-5"></i>
+                <a href="notificaciones.html" class="text-dark"><i class="bi bi-bell fs-5"></i></a>
 
                 <i class="bi bi-translate fs-5"></i>
 
-                <a href="login.html" class="btn btn-outline-success btn-sm fw-bold">
+                <span id="navUsuarioInfo" class="fw-bold text-success d-none"></span>
+
+                <a href="perfil/login.html" id="navIngresar" class="btn btn-outline-success btn-sm fw-bold">
+                    Ingresar
+                </a>
+
+                <a href="#" id="navCerrarSesion" class="btn btn-outline-danger btn-sm fw-bold d-none">
                     Cerrar sesión
                 </a>
 
@@ -552,7 +552,8 @@
     <script src="../public/js/solicitar_apoyo.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script>window.API_BASE = "../api/";</script>
+    <script src="../public/js/auth_header.js"></script>
 </body>
 
 </html>
