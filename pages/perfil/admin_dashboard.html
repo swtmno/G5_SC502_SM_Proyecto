@@ -24,7 +24,21 @@
 
 <body>
 
+    <script>
+        (async function () {
+            try {
+                const res = await fetch("../../api/sesion.php");
+                const datos = await res.json();
 
+                if (!datos.logueado || datos.usuario.rol !== "ADMIN") {
+                    alert("Esta sección es exclusiva para administradores.");
+                    window.location.href = "../../index.html";
+                }
+            } catch (error) {
+                window.location.href = "../../index.html";
+            }
+        })();
+    </script>
 
     <header class="encabezado-principal border-bottom">
 
@@ -61,8 +75,8 @@
                         Cómo Apoyar >
                     </a>
                 </li>
-                <li>
-                    <a href="perfil/admin_dashboard.html" class="activo text-decoration-none">
+                <li id="navAdminItem">
+                    <a href="admin_dashboard.html" class="activo text-decoration-none">
                         Administración
                     </a>
                 </li>
@@ -71,11 +85,17 @@
 
             <div class="iconos-nav d-flex gap-3 align-items-center">
 
-                <i class="bi bi-bell fs-5"></i>
+                <a href="../notificaciones.html" class="text-dark"><i class="bi bi-bell fs-5"></i></a>
 
                 <i class="bi bi-translate fs-5"></i>
 
-                <a href="login.html" class="btn btn-outline-success btn-sm fw-bold">
+                <span id="navUsuarioInfo" class="fw-bold text-success d-none"></span>
+
+                <a href="login.html" id="navIngresar" class="btn btn-outline-success btn-sm fw-bold">
+                    Ingresar
+                </a>
+
+                <a href="#" id="navCerrarSesion" class="btn btn-outline-danger btn-sm fw-bold d-none">
                     Cerrar sesión
                 </a>
 
@@ -126,7 +146,7 @@
 
             </div>
 
-            <button class="btn btn-success">
+            <button class="btn btn-success" id="btnActualizarPanel">
 
                 <i class="bi bi-arrow-clockwise"></i>
 
@@ -226,7 +246,7 @@
 
                         <i class="bi bi-box-seam-fill icono-resumen"></i>
 
-                        <h2>
+                        <h2 id="entregasPorcentaje">
 
                             92%
 
@@ -322,7 +342,7 @@
 
                     <div class="card-body">
 
-                        <ul class="list-group">
+                        <ul class="list-group" id="listaUsuarios">
 
                             <li class="list-group-item d-flex justify-content-between">
 
@@ -392,7 +412,7 @@
 
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body" id="listaDonaciones">
 
                         <div class="mb-3">
 
@@ -668,6 +688,8 @@
     </div>
 </footer>
 
+    <script>window.API_BASE = "../../api/";</script>
+    <script src="../../public/js/auth_header.js"></script>
     <script src="../../public/js/admin_dashboard.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
