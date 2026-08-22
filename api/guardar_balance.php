@@ -1,5 +1,6 @@
 <?php
-header('Content-Type: application/json; charset=utf-8');
+
+require_once 'verificar_admin.php';
 require_once 'conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

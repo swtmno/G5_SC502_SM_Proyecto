@@ -237,3 +237,20 @@ if (formNuevoReporte) {
 
 // Inicialización
 cargarBalances();
+
+// --- Mostrar el formulario de registro de balance solo a administradores ---
+(async function verificarRolParaBalance() {
+    const seccionRegistrar = document.getElementById("seccionRegistrarBalance");
+    if (!seccionRegistrar) return;
+
+    try {
+        const res = await fetch("../api/sesion.php");
+        const datos = await res.json();
+
+        if (datos.logueado && datos.usuario.rol === "ADMIN") {
+            seccionRegistrar.classList.remove("d-none");
+        }
+    } catch (error) {
+        console.error("No se pudo verificar la sesión:", error);
+    }
+})();

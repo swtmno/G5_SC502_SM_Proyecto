@@ -119,7 +119,7 @@
              MÓDULO ADICIONAL: REGISTRO DE NUEVO REPORTE (OPCIONAL/EXTRA)
              Permite agregar datos en memoria para demostrar uso de Arreglos JS
              ================================================================ -->
-        <section class="card shadow-sm border-0 mt-5 bg-light">
+        <section class="card shadow-sm border-0 mt-5 bg-light d-none" id="seccionRegistrarBalance">
             <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
                 <h5 class="mb-0 fw-bold text-secondary"><i class="bi bi-plus-circle-fill text-success me-2"></i>
                     Registrar Nuevo Balance de Alimentos</h5>
@@ -133,8 +133,9 @@
                     <form id="formNuevoReporte">
                         <div class="row g-3">
                             <div class="col-md-3">
-                                <label for="inputID" class="form-label fw-bold small">ID Responsable:</label>
-                                <input type="text" id="inputID" class="form-control" placeholder="Ej: USR-001" required>
+                                <label for="inputID" class="form-label fw-bold small">ID Responsable (tu id_usuario):</label>
+                                <input type="number" id="inputID" class="form-control" placeholder="Ej: 5" required>
+                                <small class="text-muted">Es tu id_usuario numérico, no un texto tipo "USR-001".</small>
                             </div>
                             <div class="col-md-3">
                                 <label for="inputRecolectado" class="form-label fw-bold small text-success">Recolectados
