@@ -324,6 +324,47 @@
 
         </div>
 
+        <div class="card shadow-sm mb-5">
+
+            <div class="card-header bg-warning">
+                Enviar notificación a todos los usuarios
+            </div>
+
+            <div class="card-body">
+
+                <form id="formNotificacion" class="row g-3">
+
+                    <div class="col-md-4">
+                        <label class="form-label">Título</label>
+                        <input type="text" class="form-control" id="notifTitulo" required>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">Tipo</label>
+                        <select class="form-select" id="notifTipo">
+                            <option value="CAMPANA">Campaña</option>
+                            <option value="HORARIO">Horario de recolecta</option>
+                            <option value="INFO">Información</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-5">
+                        <label class="form-label">Mensaje</label>
+                        <input type="text" class="form-control" id="notifMensaje" required>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-megaphone"></i> Enviar a todos
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
      
 
         <div class="row">

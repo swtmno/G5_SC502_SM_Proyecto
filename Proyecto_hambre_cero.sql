@@ -96,3 +96,15 @@ CREATE TABLE balance_alimentos (
     FOREIGN KEY (id_responsable) REFERENCES usuarios(id_usuario)
         ON UPDATE CASCADE
 );
+-- Nueva tabla
+CREATE TABLE notificaciones (
+    id_notificacion   INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario        INT NULL,
+    titulo            VARCHAR(150) NOT NULL,
+    mensaje           TEXT NOT NULL,
+    tipo              ENUM('SISTEMA', 'CAMPANA', 'HORARIO', 'INFO') DEFAULT 'SISTEMA',
+    leida             BOOLEAN DEFAULT FALSE,
+    fecha_creacion    DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);

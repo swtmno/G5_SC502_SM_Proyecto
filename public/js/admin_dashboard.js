@@ -223,6 +223,35 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // --- Enviar notificación de campaña ---
+    const formNotificacion = document.getElementById("formNotificacion");
+    if (formNotificacion) {
+        formNotificacion.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const titulo = document.getElementById("notifTitulo").value.trim();
+            const tipo = document.getElementById("notifTipo").value;
+            const mensaje = document.getElementById("notifMensaje").value.trim();
+
+            try {
+                const res = await fetch(base + "crear_notificacion.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ titulo, tipo, mensaje })
+                });
+
+                const json = await res.json();
+                alert(json.message);
+
+                if (json.success) {
+                    formNotificacion.reset();
+                }
+            } catch (error) {
+                alert("Error al conectar con el servidor.");
+            }
+        });
+    }
+
     // --- Carga inicial ---
     cargarResumen();
     cargarSolicitudes();

@@ -80,6 +80,19 @@ try {
         ':rol' => $rol
     ]);
 
+    $idNuevoUsuario = $conexion->lastInsertId();
+
+    $insertarNotificacion = $conexion->prepare(
+        "INSERT INTO notificaciones (id_usuario, titulo, mensaje, tipo)
+         VALUES (:id_usuario, :titulo, :mensaje, 'SISTEMA')"
+    );
+
+    $insertarNotificacion->execute([
+        ':id_usuario' => $idNuevoUsuario,
+        ':titulo' => '¡Bienvenido a Hambre Cero!',
+        ':mensaje' => 'Tu cuenta se creó correctamente. Gracias por unirte a la lucha contra la inseguridad alimentaria.'
+    ]);
+
     echo json_encode([
         'success' => true,
         'message' => 'Cuenta creada correctamente.'
