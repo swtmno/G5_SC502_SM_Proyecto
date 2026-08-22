@@ -252,10 +252,40 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // --- Cargar voluntarios ---
+    async function cargarVoluntarios() {
+        const tablaVoluntarios = document.getElementById("tablaVoluntarios");
+        if (!tablaVoluntarios) return;
+
+        try {
+            const res = await fetch(base + "listar_voluntarios.php");
+            const json = await res.json();
+
+            if (!json.success || json.data.length === 0) {
+                tablaVoluntarios.innerHTML = `<tr><td colspan="5" class="text-center text-muted">No hay registros todavía.</td></tr>`;
+                return;
+            }
+
+            tablaVoluntarios.innerHTML = json.data.map(v => `
+                <tr>
+                    <td>${v.nombre}</td>
+                    <td>${v.correo}<br><small class="text-muted">${v.telefono}</small></td>
+                    <td>${v.tipo_apoyo}</td>
+                    <td>${v.disponibilidad || '—'}</td>
+                    <td>${v.fecha_registro}</td>
+                </tr>
+            `).join("");
+
+        } catch (error) {
+            tablaVoluntarios.innerHTML = `<tr><td colspan="5" class="text-center text-danger">Error al conectar con el servidor</td></tr>`;
+        }
+    }
+
     // --- Carga inicial ---
     cargarResumen();
     cargarSolicitudes();
     cargarUsuarios();
     cargarDonaciones();
+    cargarVoluntarios();
 
 });

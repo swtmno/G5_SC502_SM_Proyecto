@@ -108,3 +108,18 @@ CREATE TABLE notificaciones (
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
+-- Nueva tabla
+CREATE TABLE voluntarios (
+    id_voluntario     INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario        INT NULL,
+    nombre            VARCHAR(100) NOT NULL,
+    correo            VARCHAR(100) NOT NULL,
+    telefono          VARCHAR(20) NOT NULL,
+    tipo_apoyo        ENUM('Voluntariado', 'Donación de Alimentos', 'Donación Monetaria', 'Organización') NOT NULL,
+    disponibilidad    VARCHAR(150) NULL,
+    mensaje           TEXT NULL,
+    estado            ENUM('PENDIENTE', 'CONTACTADO', 'ACTIVO') DEFAULT 'PENDIENTE',
+    fecha_registro    DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+        ON DELETE SET NULL ON UPDATE CASCADE
+);
