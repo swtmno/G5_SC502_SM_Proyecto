@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $input = json_decode(file_get_contents("php://input"), true) ?? [];
 
 // NOTA: El ID Responsable debe ser un número entero (id_usuario de la BD).
-$id_responsable = intval($input['id_responsable'] ?? 0);
+$id_responsable = intval($input['id_responsable'] ?? 0);  
 $recolectados_kg = floatval($input['recolectados_kg'] ?? 0);
 $entregados_kg = floatval($input['entregados_kg'] ?? 0);
 $desperdiciados_kg = floatval($input['desperdiciados_kg'] ?? 0);
